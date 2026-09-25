@@ -302,11 +302,10 @@ BOOL APIENTRY DllMain(HMODULE h_module, DWORD fdw_reason, LPVOID lpv_reserved) {
         return FALSE;
       }
 
-      // Keep the FP16 copy-and-draw presentation path and the original scRGB shaders.
-      renodx::mods::swapchain::target_format = reshade::api::format::r16g16b16a16_float;
-      renodx::mods::swapchain::target_color_space = reshade::api::color_space::extended_srgb_linear;
+      // Keep game rendering in FP16 and encode only the final presentation as HDR10.
+      renodx::mods::swapchain::SetUseHDR10();
       renodx::mods::swapchain::use_resource_cloning = true;
-      renodx::mods::swapchain::swapchain_proxy_compatibility_mode = true;
+      renodx::mods::swapchain::swapchain_proxy_compatibility_mode = false;
       renodx::mods::swapchain::swap_chain_proxy_format = reshade::api::format::r16g16b16a16_float;
       renodx::mods::swapchain::swap_chain_proxy_vertex_shader = __final_vertex_shader;
       renodx::mods::swapchain::swap_chain_proxy_pixel_shader = __final_pixel_shader;

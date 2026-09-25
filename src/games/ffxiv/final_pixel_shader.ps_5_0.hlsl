@@ -14,12 +14,21 @@ void main(
         color = saturate(color);
     }
 
-    // linearize
-    color.rgb = sign(color.rgb) * pow(abs(color.rgb), 2.2f);
+    // Preserve the existing gamma and UI-white scaling, changing only the output encoding.
+    renodx::draw::Config config = renodx::draw::BuildConfig();
+    config.swap_chain_output_preset = renodx::draw::SWAP_CHAIN_OUTPUT_PRESET_NONE;
+    config.swap_chain_decoding = renodx::draw::ENCODING_GAMMA_2_2;
+    config.swap_chain_decoding_color_space = renodx::color::convert::COLOR_SPACE_BT709;
+    config.swap_chain_gamma_correction = renodx::draw::GAMMA_CORRECTION_NONE;
+    config.swap_chain_scaling_nits = injectedData.toneMapUINits;
+    config.swap_chain_clamp_color_space = renodx::color::convert::COLOR_SPACE_NONE;
+    config.swap_chain_compress_color_space = renodx::color::convert::COLOR_SPACE_NONE;
+    // Disable the peak limiter for the entire finite FP16 input range after decoding/scaling.
+    config.swap_chain_clamp_nits = 1e20f;
+    config.swap_chain_encoding_color_space = renodx::color::convert::COLOR_SPACE_BT2020;
+    config.swap_chain_encoding = renodx::draw::ENCODING_PQ;
+    color.rgb = renodx::draw::SwapChainPass(color.rgb, vpos.xy, config);
     color.a = saturate(color.a);
-
-    // apply ui brightness
-    color.rgb *= injectedData.toneMapUINits / 80.f;
 
     output.rgba = color;
 }

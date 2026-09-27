@@ -15,6 +15,7 @@
 #include "../../mods/shader.hpp"
 #include "../../mods/swapchain.hpp"
 #include "../../utils/settings.hpp"
+#include "./dalamud_overlay.hpp"
 #include "./shared.h"
 
 ShaderInjectData shader_injection;
@@ -293,6 +294,7 @@ void OnPresent(reshade::api::command_queue* queue, reshade::api::swapchain* swap
   // Registered after the shared proxy pass so this resets tracking for the next frame.
   track_next_copy = false;
   shader_injection.copyTracker = 0;
+  renodx::games::ffxiv::dalamud_overlay::OnPresent(swapchain);
 }
 
 BOOL APIENTRY DllMain(HMODULE h_module, DWORD fdw_reason, LPVOID lpv_reserved) {
@@ -327,10 +329,12 @@ BOOL APIENTRY DllMain(HMODULE h_module, DWORD fdw_reason, LPVOID lpv_reserved) {
       });
 
       reshade::register_event<reshade::addon_event::present>(OnPresent);
+      renodx::games::ffxiv::dalamud_overlay::Use(fdw_reason);
 
       break;
     }
     case DLL_PROCESS_DETACH:
+      renodx::games::ffxiv::dalamud_overlay::Use(fdw_reason);
       reshade::unregister_event<reshade::addon_event::present>(OnPresent);
 
       renodx::mods::shader::Use(fdw_reason, custom_shaders, &shader_injection);

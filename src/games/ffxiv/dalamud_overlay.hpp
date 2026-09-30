@@ -6,24 +6,23 @@
 #pragma once
 
 #include <bcrypt.h>
-#include <d3d11.h>
-#include <intrin.h>
+#include <d3d11_1.h>
 #include <Windows.h>
 #include <wrl/client.h>
 
 #include <array>
-#include <atomic>
+#include <cmath>
 #include <cstdint>
 #include <cstring>
 #include <mutex>
 
+#include <embed/0xC046E20B.h>
 #include <include/reshade.hpp>
 
 #include "../../mods/swapchain.hpp"
 #include "../../utils/detour.hpp"
 #include "../../utils/log.hpp"
 #include "../../utils/resource.hpp"
-#include "./dalamud_roundtrip.hpp"
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -36,7 +35,10 @@ using Overlay = void (*)(api::effect_runtime*);
 using Event = reshade::addon_event;
 using RegisterEvent = void (*)(void*, Event, void*);
 using UnregisterAddon = void (*)(void*);
-using DrawIndexed = void(STDMETHODCALLTYPE*)(ID3D11DeviceContext*, UINT, UINT, INT);
+using PSSetShader = void(STDMETHODCALLTYPE*)(ID3D11DeviceContext*, ID3D11PixelShader*, ID3D11ClassInstance* const*, UINT);
+using PSSetShaderResources = void(STDMETHODCALLTYPE*)(ID3D11DeviceContext*, UINT, UINT, ID3D11ShaderResourceView* const*);
+using CreatePixelShader = HRESULT(STDMETHODCALLTYPE*)(ID3D11Device*, const void*, SIZE_T, ID3D11ClassLinkage*, ID3D11PixelShader**);
+using CreateVertexShader = HRESULT(STDMETHODCALLTYPE*)(ID3D11Device*, const void*, SIZE_T, ID3D11ClassLinkage*, ID3D11VertexShader**);
 
 // This adapter deliberately supports one inspected ReShade binary, not a guessed
 // std::vector ABI. 6.8.0.2155 x64, SHA256 below, PE timestamp 0x6A6F6BB3.
@@ -65,24 +67,37 @@ inline UnregisterAddon unregister_addon = nullptr;
 inline Overlay original_overlay = nullptr;
 inline HMODULE owner = nullptr;
 inline std::recursive_mutex registration_mutex;
-inline DrawIndexed draw_indexed = nullptr;
-inline void* draw_indexed_address = nullptr;
+inline PSSetShader ps_set_shader = nullptr;
+inline void* ps_set_shader_address = nullptr;
+inline PSSetShaderResources ps_set_shader_resources = nullptr;
+inline void* ps_set_shader_resources_address = nullptr;
+inline CreatePixelShader create_pixel_shader = nullptr;
+inline CreateVertexShader create_vertex_shader = nullptr;
+inline void* create_pixel_shader_address = nullptr;
+inline void* create_vertex_shader_address = nullptr;
 inline bool native_hooks = false;
 inline bool attached = false;
-inline std::atomic_uint native_diagnostic_budget = 128;
-
 struct Runtime {
   api::effect_runtime* runtime = nullptr;
   ComPtr<ID3D11DeviceContext> context;
-  BackgroundRoundTrip round_trip;
+  ComPtr<ID3D11Device> device;
+  struct DirectPQ {
+    ComPtr<ID3D11DeviceContext1> context;
+    ComPtr<ID3D11PixelShader> shader;
+    ComPtr<ID3D11Buffer> constants;
+    ComPtr<ID3D11PixelShader> original_shader;
+    ComPtr<ID3D11Buffer> original_constants;
+    UINT first_constant = 0;
+    UINT constant_count = 0;
+    bool bound = false;
+    bool attempted = false;
+    HRESULT result = S_OK;
+  } direct_pq;
+  float ui_nits = 203.f;
+  bool correction_candidate = false;
   api::color_space color_space = api::color_space::unknown;
-  uint64_t frame = 0;
-  uint64_t effects_frame = 0;
-  uint64_t entered_frame = 0;
-  uint64_t exited_frame = 0;
-  unsigned trace_frames = 3;
-  unsigned draws = 0;
-  unsigned main_draws = 0;
+  bool presented = false;
+  bool direct_pq_enabled = false;
   uint64_t presentation = 0;
   uint64_t buffer_zero = 0;
   uint64_t native_buffer_zero = 0;
@@ -91,18 +106,134 @@ struct Runtime {
   uint64_t buffer_zero_identity = 0;
   uint64_t native_buffer_zero_identity = 0;
   uint64_t proxy_identity = 0;
-  std::array<uint64_t, 16> seen_presentations = {};
-  unsigned presentation_count = 0;
-  std::array<ID3D11RenderTargetView*, 32> seen_views = {};
-  unsigned seen_count = 0;
   bool native_supported = false;
-  bool post_draw_seen = false;
-  bool drawing_observed = false;
 };
 inline std::array<Runtime, 8> runtimes;
 inline thread_local Runtime* active = nullptr;
-inline thread_local Runtime* after_overlay = nullptr;
 inline thread_local bool observing = false;
+
+// Tags are assigned only after hashing the original bytecode at creation on
+// this runtime's native device. No shader-pointer guessing or CLR inspection.
+inline constexpr GUID imgui_fingerprint = {0x6825f779, 0xebc4, 0x4cec, {0xb7, 0x4a, 0xac, 0x38, 0x3e, 0x25, 0x99, 0x03}};
+inline constexpr UINT imgui_ps_tag = 0x15003502;
+inline constexpr UINT imgui_vs_tag = 0x15003501;
+
+inline void RestoreDirectPQ(Runtime* state) {
+  auto& direct = state->direct_pq;
+  if (!direct.bound) return;
+  direct.bound = false;
+  // Restore only bindings still owned by us. In particular, blur and the
+  // renderer's state backup may already have supplied a different PS/b0.
+  ComPtr<ID3D11PixelShader> pixel;
+  state->context->PSGetShader(&pixel, nullptr, nullptr);
+  if (pixel.Get() == direct.shader.Get()) ps_set_shader(state->context.Get(), direct.original_shader.Get(), nullptr, 0);
+  ComPtr<ID3D11Buffer> constants;
+  direct.context->PSGetConstantBuffers(0, 1, &constants);
+  if (constants.Get() == direct.constants.Get()) {
+    direct.context->PSSetConstantBuffers1(0, 1, direct.original_constants.GetAddressOf(),
+                                          &direct.first_constant, &direct.constant_count);
+  }
+  direct.original_shader.Reset();
+  direct.original_constants.Reset();
+}
+
+inline void RejectCorrection() {
+  if (active != nullptr) {
+    active->correction_candidate = false;
+    RestoreDirectPQ(active);
+  }
+}
+
+inline void TagImGuiShader(ID3D11Device* device, const void* bytes, SIZE_T size, ID3D11DeviceChild* shader, UINT tag) {
+  if (shader == nullptr || bytes == nullptr || size != (tag == imgui_ps_tag ? 740 : 996)) return;
+  bool supported = false;
+  for (const auto& state : runtimes) supported |= state.native_supported && state.device.Get() == device;
+  if (!supported) return;
+  // Pinned 15.0.3.5 Renderers/imgui-{frag,vertex}.hlsl.bytes, SHA256.
+  constexpr std::array<uint8_t, 32> pixel_digest = {
+      0xB6, 0xE7, 0xF2, 0xFE, 0xB0, 0x0C, 0xC7, 0x87, 0xD3, 0xF0, 0x39, 0xDF, 0xD8, 0xDD, 0x02, 0x72,
+      0x0B, 0x59, 0xF7, 0x49, 0x7E, 0xD9, 0x36, 0xB4, 0xFD, 0x4B, 0x85, 0xD1, 0x6E, 0x39, 0x83, 0x4A};
+  constexpr std::array<uint8_t, 32> vertex_digest = {
+      0xB6, 0x2A, 0x4A, 0xAE, 0xEE, 0x2B, 0x9F, 0x9E, 0xA9, 0xF1, 0x83, 0x7A, 0xA6, 0x0E, 0x75, 0x85,
+      0xA0, 0xB2, 0xD6, 0xF1, 0x88, 0x96, 0x62, 0xFE, 0xDF, 0x0C, 0x12, 0x2E, 0x69, 0xD6, 0x57, 0x2E};
+  std::array<uint8_t, 32> digest = {};
+  if (BCryptHash(BCRYPT_SHA256_ALG_HANDLE, nullptr, 0, const_cast<PUCHAR>(static_cast<const UCHAR*>(bytes)),
+                 static_cast<ULONG>(size), digest.data(), static_cast<ULONG>(digest.size()))
+          >= 0
+      && digest == (tag == imgui_ps_tag ? pixel_digest : vertex_digest)) {
+    shader->SetPrivateData(imgui_fingerprint, sizeof(tag), &tag);
+  }
+}
+
+inline HRESULT STDMETHODCALLTYPE CreatePixelShaderHook(ID3D11Device* device, const void* bytes, SIZE_T size,
+                                                       ID3D11ClassLinkage* linkage, ID3D11PixelShader** shader) {
+  const HRESULT result = create_pixel_shader(device, bytes, size, linkage, shader);
+  if (SUCCEEDED(result) && shader != nullptr && linkage == nullptr) TagImGuiShader(device, bytes, size, *shader, imgui_ps_tag);
+  return result;
+}
+
+inline HRESULT STDMETHODCALLTYPE CreateVertexShaderHook(ID3D11Device* device, const void* bytes, SIZE_T size,
+                                                        ID3D11ClassLinkage* linkage, ID3D11VertexShader** shader) {
+  const HRESULT result = create_vertex_shader(device, bytes, size, linkage, shader);
+  if (SUCCEEDED(result) && shader != nullptr && linkage == nullptr) TagImGuiShader(device, bytes, size, *shader, imgui_vs_tag);
+  return result;
+}
+
+inline bool IsImGuiShader(ID3D11DeviceChild* shader, UINT expected) {
+  UINT tag = 0;
+  UINT size = sizeof(tag);
+  return shader != nullptr && SUCCEEDED(shader->GetPrivateData(imgui_fingerprint, &size, &tag))
+         && size == sizeof(tag) && tag == expected;
+}
+
+// Unsupported auxiliary work stops further direct-PQ correction in this callback.
+// Restore the active binding before forwarding unsupported work. Earlier direct
+// draws cannot be rolled back. Every original operation executes.
+// Slot-specific types keep each ABI and trampoline separate.
+template <UINT Slot, typename... Args>
+struct AuxiliaryOperation {
+  using Function = void(STDMETHODCALLTYPE*)(ID3D11DeviceContext*, Args...);
+  static inline Function original = nullptr;
+  static inline void* address = nullptr;
+  static void STDMETHODCALLTYPE Hook(ID3D11DeviceContext* context, Args... args) {
+    if (!observing && active != nullptr) RejectCorrection();
+    original(context, args...);
+  }
+  static renodx::utils::detour::Function Bind(void** table) {
+    address = table[Slot];
+    original = reinterpret_cast<Function>(address);
+    return {&original, &Hook};
+  }
+  static bool Matches(void** table) { return table[Slot] == address; }
+};
+
+using NativeDraw = AuxiliaryOperation<13, UINT, UINT>;
+using NativeDrawIndexedInstanced = AuxiliaryOperation<20, UINT, UINT, UINT, INT, UINT>;
+using NativeDrawInstanced = AuxiliaryOperation<21, UINT, UINT, UINT, UINT>;
+using NativeBeginQuery = AuxiliaryOperation<27, ID3D11Asynchronous*>;
+using NativeEndQuery = AuxiliaryOperation<28, ID3D11Asynchronous*>;
+using NativeDrawAuto = AuxiliaryOperation<38>;
+using NativeDrawIndexedIndirect = AuxiliaryOperation<39, ID3D11Buffer*, UINT>;
+using NativeDrawIndirect = AuxiliaryOperation<40, ID3D11Buffer*, UINT>;
+using NativeDispatch = AuxiliaryOperation<41, UINT, UINT, UINT>;
+using NativeDispatchIndirect = AuxiliaryOperation<42, ID3D11Buffer*, UINT>;
+using NativeCopyRegion = AuxiliaryOperation<46, ID3D11Resource*, UINT, UINT, UINT, UINT, ID3D11Resource*, UINT, const D3D11_BOX*>;
+using NativeCopy = AuxiliaryOperation<47, ID3D11Resource*, ID3D11Resource*>;
+using NativeUpdate = AuxiliaryOperation<48, ID3D11Resource*, UINT, const D3D11_BOX*, const void*, UINT, UINT>;
+using NativeClear = AuxiliaryOperation<50, ID3D11RenderTargetView*, const FLOAT*>;
+using NativeClearUint = AuxiliaryOperation<51, ID3D11UnorderedAccessView*, const UINT*>;
+using NativeClearFloat = AuxiliaryOperation<52, ID3D11UnorderedAccessView*, const FLOAT*>;
+using NativeClearDepth = AuxiliaryOperation<53, ID3D11DepthStencilView*, UINT, FLOAT, UINT8>;
+using NativeGenerateMips = AuxiliaryOperation<54, ID3D11ShaderResourceView*>;
+using NativeResolve = AuxiliaryOperation<57, ID3D11Resource*, UINT, ID3D11Resource*, UINT, DXGI_FORMAT>;
+using NativeExecute = AuxiliaryOperation<58, ID3D11CommandList*, BOOL>;
+using NativeCopyRegion1 = AuxiliaryOperation<115, ID3D11Resource*, UINT, UINT, UINT, UINT, ID3D11Resource*, UINT, const D3D11_BOX*, UINT>;
+using NativeUpdate1 = AuxiliaryOperation<116, ID3D11Resource*, UINT, const D3D11_BOX*, const void*, UINT, UINT, UINT>;
+using NativeDiscardResource = AuxiliaryOperation<117, ID3D11Resource*>;
+using NativeDiscardView = AuxiliaryOperation<118, ID3D11View*>;
+using NativeClearView = AuxiliaryOperation<132, ID3D11View*, const FLOAT*, const D3D11_RECT*, UINT>;
+using NativeDiscardView1 = AuxiliaryOperation<133, ID3D11View*, const D3D11_RECT*, UINT>;
+inline std::array<renodx::utils::detour::Function, 30> native_detours;
 
 inline Runtime* FindRuntime(api::effect_runtime* runtime) {
   for (auto& state : runtimes) {
@@ -228,9 +359,6 @@ inline void IdentifyCallback() {
     owner = nullptr;
     return;
   }
-  log::i("[FFXIV Dalamud] CALLBACK_FOUND version=15.0.3.5 owner=", owner,
-         " thunk=", reinterpret_cast<void*>(original_overlay), " event=81 index=", candidate - overlay_list->begin,
-         " ownership=original registration_order=unchanged (mode-3 drawing requires native draw evidence)");
 }
 
 inline void RegisterEventHook(void* module, Event event, void* callback) {
@@ -256,13 +384,15 @@ inline void UnregisterEventHook(void* module, Event event, void* callback) {
   const bool was_dalamud = callback == reinterpret_cast<void*>(original_overlay);
   RestoreDispatch();
   if (was_dalamud) {
-    for (auto& state : runtimes) state.round_trip.Reset("callback_unregister");
+    for (auto& state : runtimes) {
+      RestoreDirectPQ(&state);
+      state.direct_pq = {};
+    }
   }
   unregister_event(module, event, callback);
   // An explicit wrong owner is allowed to fail just as it would without us.
   original_overlay = nullptr;
   owner = nullptr;
-  if (was_dalamud) log::i("[FFXIV Dalamud] CALLBACK_UNREGISTER original thunk restored before native unregister");
   IdentifyCallback();
 }
 
@@ -270,10 +400,12 @@ inline void UnregisterAddonHook(void* module) {
   const std::lock_guard lock(registration_mutex);
   if (module == owner) {
     RestoreDispatch();
-    for (auto& state : runtimes) state.round_trip.Reset("owner_unregister");
+    for (auto& state : runtimes) {
+      RestoreDirectPQ(&state);
+      state.direct_pq = {};
+    }
     original_overlay = nullptr;
     owner = nullptr;
-    log::i("[FFXIV Dalamud] OWNER_UNREGISTER original dispatch restored; native ownership cleanup follows");
   }
   unregister_addon(module);
 }
@@ -284,69 +416,197 @@ inline uint64_t Identity(IUnknown* object) {
   return reinterpret_cast<uint64_t>(identity.Get());
 }
 
-inline void ObserveTarget(Runtime* state, ID3D11DeviceContext* context) {
-  if (!state->drawing_observed) {
-    state->drawing_observed = true;
-    state->trace_frames = 3;
+// SetupRenderState binds PS before the per-command texture and before clearing
+// GS/HS/DS. Validate those later at PSSetShaderResources, never at DrawIndexed.
+inline bool ValidateDirectPQ(Runtime* state, ID3D11DeviceContext* context, bool texture_bound) {
+  if (!state->correction_candidate) return false;
+  ComPtr<ID3D11VertexShader> vertex;
+  UINT vertex_classes = 0;
+  context->VSGetShader(&vertex, nullptr, &vertex_classes);
+  if (vertex_classes != 0 || !IsImGuiShader(vertex.Get(), imgui_vs_tag)) {
+    RejectCorrection();
+    return false;
   }
-  ComPtr<ID3D11RenderTargetView> view;
-  context->OMGetRenderTargets(1, &view, nullptr);
-  if (view == nullptr) return;
-  ComPtr<ID3D11Resource> resource;
-  view->GetResource(&resource);
-  const uint64_t identity = Identity(resource.Get());
-  if (identity != 0 && identity == state->presentation_identity) ++state->main_draws;
-  for (unsigned i = 0; i < state->seen_count; ++i) {
-    if (state->seen_views[i] == view.Get()) return;
-  }
-  if (state->seen_count == state->seen_views.size()) return;
-  state->seen_views[state->seen_count++] = view.Get();  // Identity only; never retain a backbuffer reference.
-  unsigned budget = native_diagnostic_budget.load();
-  while (budget != 0 && !native_diagnostic_budget.compare_exchange_weak(budget, budget - 1)) {
-  }
-  if (budget == 0) return;
-  ComPtr<ID3D11Texture2D> texture;
-  ComPtr<ID3D11Device> device;
-  resource->GetDevice(&device);
-  D3D11_TEXTURE2D_DESC desc = {};
-  D3D11_RENDER_TARGET_VIEW_DESC view_desc = {};
-  if (SUCCEEDED(resource.As(&texture))) texture->GetDesc(&desc);
-  view->GetDesc(&view_desc);
-  log::i("[FFXIV Dalamud] NATIVE_DRAW runtime=", state->runtime, " frame=", state->frame,
-         " device=", device.Get(), " immediate_context=", context, " context_type=", context->GetType(),
-         " rtv=", view.Get(), " resource=", resource.Get(), " resource_iunknown=", log::AsPtr(identity), " format=", static_cast<unsigned>(desc.Format),
-         " dimensions=", desc.Width, "x", desc.Height, " samples=", desc.SampleDesc.Count,
-         " rtv_format=", static_cast<unsigned>(view_desc.Format),
-         " matches_presentation=", identity != 0 && identity == state->presentation_identity,
-         " matches_buffer0=", identity != 0 && identity == state->buffer_zero_identity,
-         " matches_native_buffer0=", identity != 0 && identity == state->native_buffer_zero_identity,
-         " matches_proxy=", identity != 0 && identity == state->proxy_identity);
-}
 
-inline void STDMETHODCALLTYPE DrawIndexedHook(ID3D11DeviceContext* context, UINT count, UINT start, INT base) {
-  if (!observing && active != nullptr && active->context.Get() == context) {
-    observing = true;
-    ++active->draws;
-    ObserveTarget(active, context);
-    observing = false;
-  } else if (!observing && active == nullptr && after_overlay != nullptr
-             && after_overlay->context.Get() == context && !after_overlay->post_draw_seen) {
-    HMODULE caller = nullptr;
-    GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-                       reinterpret_cast<LPCWSTR>(_ReturnAddress()), &caller);
-    if (caller == reshade_module) {
-      after_overlay->post_draw_seen = true;
-      if (after_overlay->trace_frames != 0) {
-        log::i("[FFXIV Dalamud] RESHADE_NATIVE_DRAW_AFTER_EXIT runtime=", after_overlay->runtime,
-               " frame=", after_overlay->frame, " context=", context, " caller=", _ReturnAddress());
-      }
+  std::array<ComPtr<ID3D11RenderTargetView>, D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT> views;
+  ComPtr<ID3D11DepthStencilView> depth_view;
+  // Query separately to avoid depending on ComPtr's representation as an array.
+  ID3D11RenderTargetView* raw_views[D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT] = {};
+  context->OMGetRenderTargets(D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT, raw_views, &depth_view);
+  bool other_targets = depth_view != nullptr;
+  for (unsigned i = 0; i < views.size(); ++i) {
+    views[i].Attach(raw_views[i]);
+    if (i != 0) other_targets |= views[i] != nullptr;
+  }
+  ComPtr<ID3D11Resource> resource;
+  if (views[0] != nullptr) views[0]->GetResource(&resource);
+  D3D11_RENDER_TARGET_VIEW_DESC rtv_desc = {};
+  if (views[0] != nullptr) views[0]->GetDesc(&rtv_desc);
+  if (other_targets || Identity(resource.Get()) != state->presentation_identity
+      || rtv_desc.Format != DXGI_FORMAT_R10G10B10A2_UNORM
+      || rtv_desc.ViewDimension != D3D11_RTV_DIMENSION_TEXTURE2D || rtv_desc.Texture2D.MipSlice != 0) {
+    RejectCorrection();
+    return false;
+  }
+  if (texture_bound) {
+    ComPtr<ID3D11PixelShader> pixel;
+    ComPtr<ID3D11Buffer> constants;
+    UINT pixel_classes = 0;
+    context->PSGetShader(&pixel, nullptr, &pixel_classes);
+    context->PSGetConstantBuffers(0, 1, &constants);
+    if (pixel_classes != 0 || pixel.Get() != state->direct_pq.shader.Get()
+        || constants.Get() != state->direct_pq.constants.Get()) {
+      RejectCorrection();
+      return false;
+    }
+    ComPtr<ID3D11ShaderResourceView> srv;
+    context->PSGetShaderResources(0, 1, &srv);
+    D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
+    if (srv != nullptr) srv->GetDesc(&srv_desc);
+    // No SRGB views (hardware decoding), float/HDR views, or background images.
+    // The ordinary source contract is the SDR UNORM vertex/texture product.
+    bool format_allowed = false;
+    switch (srv_desc.Format) {
+      case DXGI_FORMAT_R8G8B8A8_UNORM:
+      case DXGI_FORMAT_B8G8R8A8_UNORM:
+      case DXGI_FORMAT_B8G8R8X8_UNORM:
+      case DXGI_FORMAT_B4G4R4A4_UNORM:
+      case DXGI_FORMAT_BC1_UNORM:
+      case DXGI_FORMAT_BC2_UNORM:
+      case DXGI_FORMAT_BC3_UNORM:
+      case DXGI_FORMAT_BC7_UNORM:
+        format_allowed = true;
+        break;
+      default: break;
+    }
+    const bool dimension_allowed = srv_desc.ViewDimension == D3D11_SRV_DIMENSION_TEXTURE2D;
+    if (!format_allowed || !dimension_allowed) {
+      RejectCorrection();
+      return false;
     }
   }
-  draw_indexed(context, count, start, base);
+  ComPtr<ID3D11BlendState> blend;
+  FLOAT factors[4] = {};
+  UINT mask = 0;
+  context->OMGetBlendState(&blend, factors, &mask);
+  D3D11_BLEND_DESC blend_desc = {};
+  if (blend != nullptr) blend->GetDesc(&blend_desc);
+  const auto& rt = blend_desc.RenderTarget[0];
+  if (blend_desc.AlphaToCoverageEnable || blend_desc.IndependentBlendEnable || mask != 0xFFFFFFFF
+      || !rt.BlendEnable || rt.SrcBlend != D3D11_BLEND_SRC_ALPHA || rt.DestBlend != D3D11_BLEND_INV_SRC_ALPHA
+      || rt.BlendOp != D3D11_BLEND_OP_ADD || rt.SrcBlendAlpha != D3D11_BLEND_INV_DEST_ALPHA
+      || rt.DestBlendAlpha != D3D11_BLEND_ONE || rt.BlendOpAlpha != D3D11_BLEND_OP_ADD
+      || rt.RenderTargetWriteMask != D3D11_COLOR_WRITE_ENABLE_ALL) {
+    RejectCorrection();
+    return false;
+  }
+  if (texture_bound) {
+    // Extra shader stages, predicates and OM UAVs are outside the pinned ordinary
+    // renderer contract. Restore the original bindings before submission.
+    ComPtr<ID3D11GeometryShader> geometry;
+    ComPtr<ID3D11HullShader> hull;
+    ComPtr<ID3D11DomainShader> domain;
+    ComPtr<ID3D11Predicate> predicate;
+    BOOL predicate_value = FALSE;
+    context->GSGetShader(&geometry, nullptr, nullptr);
+    context->HSGetShader(&hull, nullptr, nullptr);
+    context->DSGetShader(&domain, nullptr, nullptr);
+    context->GetPredication(&predicate, &predicate_value);
+    ID3D11UnorderedAccessView* uavs[D3D11_PS_CS_UAV_REGISTER_COUNT] = {};
+    context->OMGetRenderTargetsAndUnorderedAccessViews(0, nullptr, nullptr, 0, D3D11_PS_CS_UAV_REGISTER_COUNT, uavs);
+    bool has_uavs = false;
+    for (auto* uav : uavs) {
+      if (uav != nullptr) {
+        has_uavs = true;
+        uav->Release();
+      }
+    }
+    if (geometry != nullptr || hull != nullptr || domain != nullptr || predicate != nullptr || has_uavs) {
+      RejectCorrection();
+      return false;
+    }
+  }
+
+  // Only the validated single-sample HDR10 presentation target is supported.
+  ComPtr<ID3D11Texture2D> texture;
+  D3D11_TEXTURE2D_DESC desc = {};
+  if (SUCCEEDED(resource.As(&texture))) texture->GetDesc(&desc);
+  if (desc.Format != DXGI_FORMAT_R10G10B10A2_UNORM || desc.SampleDesc.Count != 1
+      || desc.SampleDesc.Quality != 0 || desc.MipLevels != 1 || desc.ArraySize != 1
+      || desc.Width == 0 || desc.Height == 0 || (desc.BindFlags & D3D11_BIND_RENDER_TARGET) == 0
+      || context->GetType() != D3D11_DEVICE_CONTEXT_IMMEDIATE
+      || state->device->GetFeatureLevel() < D3D_FEATURE_LEVEL_11_0) {
+    RejectCorrection();
+    return false;
+  }
+  return true;
 }
 
-inline const std::array native_detours = {
-    renodx::utils::detour::Function(&draw_indexed, &DrawIndexedHook)};
+inline void STDMETHODCALLTYPE PSSetShaderHook(ID3D11DeviceContext* context, ID3D11PixelShader* pixel,
+                                              ID3D11ClassInstance* const* classes, UINT class_count) {
+  if (observing || active == nullptr) {
+    ps_set_shader(context, pixel, classes, class_count);
+    return;
+  }
+  auto* state = active;
+  RestoreDirectPQ(state);
+  if (context != state->context.Get()) {
+    RejectCorrection();
+    ps_set_shader(context, pixel, classes, class_count);
+    return;
+  }
+  if (class_count != 0 || !IsImGuiShader(pixel, imgui_ps_tag) || !ValidateDirectPQ(state, context, false)) {
+    ps_set_shader(context, pixel, classes, class_count);
+    return;
+  }
+  auto& direct = state->direct_pq;
+  observing = true;
+  if (!direct.attempted) {
+    direct.attempted = true;
+    direct.result = context->QueryInterface(IID_PPV_ARGS(&direct.context));
+    if (SUCCEEDED(direct.result)) {
+      direct.result = state->device->CreatePixelShader(__0xC046E20B.data(), __0xC046E20B.size(), nullptr, &direct.shader);
+    }
+    if (SUCCEEDED(direct.result)) {
+      const CD3D11_BUFFER_DESC constants_desc(16, D3D11_BIND_CONSTANT_BUFFER);
+      direct.result = state->device->CreateBuffer(&constants_desc, nullptr, &direct.constants);
+    }
+    if (FAILED(direct.result)) {
+      direct.context.Reset();
+      direct.shader.Reset();
+      direct.constants.Reset();
+    }
+  }
+  if (FAILED(direct.result)) {
+    RejectCorrection();
+    observing = false;
+    ps_set_shader(context, pixel, classes, class_count);
+    return;
+  }
+  const float white[4] = {state->ui_nits, 0.f, 0.f, 0.f};
+  context->UpdateSubresource(direct.constants.Get(), 0, nullptr, white, 0, 0);
+  direct.original_shader = pixel;
+  direct.context->PSGetConstantBuffers1(0, 1, &direct.original_constants, &direct.first_constant, &direct.constant_count);
+  ps_set_shader(context, direct.shader.Get(), nullptr, 0);
+  context->PSSetConstantBuffers(0, 1, direct.constants.GetAddressOf());
+  direct.bound = true;
+  observing = false;
+}
+
+inline void STDMETHODCALLTYPE PSSetShaderResourcesHook(ID3D11DeviceContext* context, UINT start, UINT count,
+                                                       ID3D11ShaderResourceView* const* views) {
+  ps_set_shader_resources(context, start, count, views);
+  // The pinned ordinary renderer binds t0 immediately before each command.
+  // Keep the SDR texture/stage/target gates without intercepting submissions.
+  if (!observing && active != nullptr && active->direct_pq.bound && start == 0 && count != 0) {
+    if (context != active->context.Get()) {
+      RejectCorrection();
+    } else {
+      ValidateDirectPQ(active, context, true);
+    }
+  }
+}
+
 inline const std::array export_detours = {
     renodx::utils::detour::Export("ReShadeRegisterEventForAddon", &register_event, &RegisterEventHook),
     renodx::utils::detour::Export("ReShadeUnregisterEventForAddon", &unregister_event, &UnregisterEventHook),
@@ -357,11 +617,47 @@ inline void OnInitRuntime(api::effect_runtime* runtime) {
   for (auto& state : runtimes) {
     if (state.runtime != nullptr) continue;
     state.runtime = runtime;
+    // Direct PQ is the default; preserve Mode 1 as a restart-only pass-through.
+    unsigned mode = 6;
+    reshade::get_config_value(nullptr, "renodx-ffxiv-dalamud", "Stage3DiagnosticMode", mode);
+    state.direct_pq_enabled = mode != 1;
     reinterpret_cast<ID3D11Device*>(runtime->get_device()->get_native())->GetImmediateContext(&state.context);
+    state.context->GetDevice(&state.device);
+    ComPtr<ID3D11DeviceContext1> context1;
+    if (FAILED(state.context.As(&context1)) || context1.Get() != state.context.Get()) {
+      log::w("[FFXIV Dalamud] NATIVE_INACTIVE unsupported D3D11.1 context identity");
+      return;
+    }
     auto** table = *reinterpret_cast<void***>(state.context.Get());
+    auto** device_table = *reinterpret_cast<void***>(state.device.Get());
     if (!native_hooks) {
-      draw_indexed_address = table[12];
-      draw_indexed = reinterpret_cast<DrawIndexed>(draw_indexed_address);
+      ps_set_shader_address = table[9];
+      ps_set_shader = reinterpret_cast<PSSetShader>(ps_set_shader_address);
+      ps_set_shader_resources_address = table[8];
+      ps_set_shader_resources = reinterpret_cast<PSSetShaderResources>(ps_set_shader_resources_address);
+      create_pixel_shader_address = device_table[15];
+      create_vertex_shader_address = device_table[12];
+      create_pixel_shader = reinterpret_cast<CreatePixelShader>(create_pixel_shader_address);
+      create_vertex_shader = reinterpret_cast<CreateVertexShader>(create_vertex_shader_address);
+      native_detours = {
+          renodx::utils::detour::Function(&ps_set_shader, &PSSetShaderHook),
+          renodx::utils::detour::Function(&ps_set_shader_resources, &PSSetShaderResourcesHook),
+          renodx::utils::detour::Function(&create_pixel_shader, &CreatePixelShaderHook),
+          renodx::utils::detour::Function(&create_vertex_shader, &CreateVertexShaderHook),
+          NativeDraw::Bind(table), NativeDrawIndexedInstanced::Bind(table),
+          NativeDrawInstanced::Bind(table), NativeDrawAuto::Bind(table),
+          NativeBeginQuery::Bind(table), NativeEndQuery::Bind(table),
+          NativeDrawIndexedIndirect::Bind(table), NativeDrawIndirect::Bind(table),
+          NativeDispatch::Bind(table), NativeDispatchIndirect::Bind(table),
+          NativeCopyRegion::Bind(table), NativeCopy::Bind(table),
+          NativeUpdate::Bind(table), NativeClearUint::Bind(table),
+          NativeClearFloat::Bind(table), NativeClearDepth::Bind(table),
+          NativeGenerateMips::Bind(table),
+          NativeClear::Bind(table), NativeResolve::Bind(table),
+          NativeExecute::Bind(table), NativeCopyRegion1::Bind(table),
+          NativeUpdate1::Bind(table), NativeDiscardResource::Bind(table),
+          NativeDiscardView::Bind(table), NativeClearView::Bind(table),
+          NativeDiscardView1::Bind(table)};
       try {
         renodx::utils::detour::Install(native_detours);
         native_hooks = true;
@@ -369,10 +665,21 @@ inline void OnInitRuntime(api::effect_runtime* runtime) {
         log::w("[FFXIV Dalamud] NATIVE_INACTIVE ", error.what());
       }
     }
-    state.native_supported = native_hooks && table[12] == draw_indexed_address;
-    log::i("[FFXIV Dalamud] RUNTIME_INIT runtime=", runtime, " native_swapchain=", reinterpret_cast<void*>(runtime->get_native()),
-           " device=", reinterpret_cast<void*>(runtime->get_device()->get_native()), " immediate_context=", state.context.Get(),
-           " native_supported=", state.native_supported);
+    state.native_supported = native_hooks && table[9] == ps_set_shader_address && table[8] == ps_set_shader_resources_address
+                             && state.device.Get() == reinterpret_cast<ID3D11Device*>(runtime->get_device()->get_native())
+                             && device_table[15] == create_pixel_shader_address && device_table[12] == create_vertex_shader_address
+                             && NativeDraw::Matches(table) && NativeDrawIndexedInstanced::Matches(table)
+                             && NativeDrawInstanced::Matches(table) && NativeDrawAuto::Matches(table)
+                             && NativeBeginQuery::Matches(table) && NativeEndQuery::Matches(table)
+                             && NativeDrawIndexedIndirect::Matches(table) && NativeDrawIndirect::Matches(table)
+                             && NativeDispatch::Matches(table) && NativeDispatchIndirect::Matches(table)
+                             && NativeCopyRegion::Matches(table) && NativeCopy::Matches(table) && NativeClear::Matches(table)
+                             && NativeUpdate::Matches(table) && NativeClearUint::Matches(table) && NativeClearFloat::Matches(table)
+                             && NativeClearDepth::Matches(table) && NativeGenerateMips::Matches(table)
+                             && NativeCopyRegion1::Matches(table) && NativeUpdate1::Matches(table)
+                             && NativeDiscardResource::Matches(table) && NativeDiscardView::Matches(table)
+                             && NativeClearView::Matches(table) && NativeDiscardView1::Matches(table)
+                             && NativeResolve::Matches(table) && NativeExecute::Matches(table);
     return;
   }
   log::w("[FFXIV Dalamud] NATIVE_INACTIVE runtime capacity exceeded");
@@ -380,89 +687,47 @@ inline void OnInitRuntime(api::effect_runtime* runtime) {
 
 inline void OnDestroyRuntime(api::effect_runtime* runtime) {
   if (auto* state = FindRuntime(runtime)) {
-    if (after_overlay == state) after_overlay = nullptr;
-    log::i("[FFXIV Dalamud] RUNTIME_DESTROY runtime=", runtime);
-    state->round_trip.Reset("runtime_destroy");
+    RestoreDirectPQ(state);
     *state = {};
   }
 }
 
-inline void OnInitSwapchain(api::swapchain* swapchain, bool resize) {
+inline void OnInitSwapchain(api::swapchain* swapchain, bool) {
   for (auto& state : runtimes) {
     if (state.runtime == nullptr || state.runtime->get_native() != swapchain->get_native()) continue;
-    state.round_trip.Reset("swapchain_init");
+    RestoreDirectPQ(&state);
+    state.direct_pq = {};
     state.presentation = state.buffer_zero = state.native_buffer_zero = state.proxy = 0;
-    state.seen_count = state.presentation_count = 0;
-    state.drawing_observed = false;
-    state.trace_frames = 3;
-    log::i("[FFXIV Dalamud] SWAPCHAIN_RESET runtime=", state.runtime, " resize=", resize);
   }
 }
 
-inline void OnDestroySwapchain(api::swapchain* swapchain, bool resize) {
+inline void OnDestroySwapchain(api::swapchain* swapchain, bool) {
   for (auto& state : runtimes) {
     if (state.runtime == nullptr || state.runtime->get_native() != swapchain->get_native()) continue;
-    // destroy_swapchain is dispatched BEFORE the underlying ResizeBuffers.
-    state.round_trip.Reset(resize ? "before_resize" : "swapchain_destroy");
+    RestoreDirectPQ(&state);
+    state.direct_pq = {};
     state.presentation = 0;
   }
 }
 
-inline bool OnOpenOverlay(api::effect_runtime* runtime, bool open, api::input_source) {
-  if (auto* state = FindRuntime(runtime)) {
-    state->trace_frames = 3;
-    log::i("[FFXIV Dalamud] TRACE_REARM runtime=", runtime, " reshade_gui_open=", open);
-  }
-  return false;
-}
-
-inline void OnPresent(api::swapchain* swapchain) {
+inline void OnPresent(api::swapchain* swapchain, float ui_nits) {
   for (auto& state : runtimes) {
     if (state.runtime == nullptr || state.runtime->get_native() != swapchain->get_native()) continue;
     state.color_space = swapchain->get_color_space();
-    ++state.frame;
-    state.draws = state.main_draws = 0;
-    state.post_draw_seen = false;
-    if (after_overlay == &state) after_overlay = nullptr;
-    if (original_overlay != nullptr && state.trace_frames != 0) {
-      auto* data = renodx::utils::data::Get<renodx::mods::swapchain::DeviceData>(swapchain->get_device());
-      log::i("[FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=", state.runtime, " frame=", state.frame,
-             " proxy_pass_available=", data != nullptr && data->swapchain_proxy_passes.contains(swapchain->get_current_back_buffer().handle));
-    }
-  }
-}
-
-inline void OnFinishEffects(api::effect_runtime* runtime, api::command_list*, api::resource_view rtv, api::resource_view) {
-  if (auto* state = FindRuntime(runtime)) {
-    state->effects_frame = state->frame;
-    if (original_overlay != nullptr && state->trace_frames != 0) {
-      log::i("[FFXIV Dalamud] EFFECTS_FINISHED runtime=", runtime, " frame=", state->frame,
-             " rtv=", log::AsPtr(rtv.handle));
-    }
-  }
-}
-
-inline void OnReShadePresent(api::effect_runtime* runtime) {
-  if (auto* state = FindRuntime(runtime)) {
-    if (original_overlay != nullptr && state->trace_frames != 0) {
-      log::i("[FFXIV Dalamud] RESHADE_PRESENT runtime=", runtime, " frame=", state->frame,
-             " entered=", state->entered_frame == state->frame, " exited=", state->exited_frame == state->frame,
-             " reshade_native_draw_after_exit=", state->post_draw_seen,
-             " (after GUI; before underlying Present; OptiScaler handoff requires external capture)");
-      --state->trace_frames;
-    }
-    if (after_overlay == state) after_overlay = nullptr;
+    state.ui_nits = ui_nits;
+    state.presented = true;
   }
 }
 
 inline void OverlayCallback(api::effect_runtime* runtime) {
   // Preserve nested invocations and the exact x64 void(effect_runtime*) ABI.
   if (active != nullptr) {
+    RejectCorrection();
     original_overlay(runtime);
     return;
   }
   auto* state = FindRuntime(runtime);
-  if (state == nullptr || !state->native_supported) {
+  if (state == nullptr || !state->native_supported || !state->direct_pq_enabled) {
     original_overlay(runtime);
     return;
   }
@@ -483,63 +748,29 @@ inline void OverlayCallback(api::effect_runtime* runtime) {
     state->buffer_zero_identity = Identity(reinterpret_cast<IUnknown*>(state->buffer_zero));
     state->native_buffer_zero_identity = Identity(native_buffer.Get());
     state->proxy_identity = Identity(reinterpret_cast<IUnknown*>(state->proxy));
-    // Buffer rotation must not produce one log per frame indefinitely.
-    bool seen = false;
-    for (unsigned i = 0; i < state->presentation_count; ++i) seen |= state->seen_presentations[i] == presentation;
-    if (!seen && state->presentation_count < state->seen_presentations.size()) {
-      state->seen_presentations[state->presentation_count++] = presentation;
-      const auto desc = runtime->get_device()->get_resource_desc(api::resource{presentation});
-      log::i("[FFXIV Dalamud] PRESENTATION runtime=", runtime, " native_swapchain=", reinterpret_cast<void*>(runtime->get_native()),
-             " hwnd=", runtime->get_hwnd(),
-             " current_index=", runtime->get_current_back_buffer_index(), " buffer_count=", runtime->get_back_buffer_count(),
-             " format=", static_cast<unsigned>(desc.texture.format), " dimensions=", desc.texture.width, "x", desc.texture.height,
-             " current_resource=", log::AsPtr(presentation), " buffer0=", log::AsPtr(state->buffer_zero),
-             " native_buffer0=", log::AsPtr(state->native_buffer_zero), " renodx_proxy=", log::AsPtr(state->proxy),
-             " presentation_iunknown=", log::AsPtr(state->presentation_identity), " proxy_iunknown=", log::AsPtr(state->proxy_identity));
-    }
   }
-  state->entered_frame = state->frame;
+  state->correction_candidate = false;
   active = state;
-  if (state->trace_frames != 0) {
-    log::i("[FFXIV Dalamud] ENTER runtime=", runtime, " frame=", state->frame,
-           " after_renodx_present=", state->frame != 0, " effects_finished_this_frame=", state->effects_frame == state->frame);
-  }
   struct ExitScope {
     Runtime* state;
     ~ExitScope() {
+      RestoreDirectPQ(state);
       active = nullptr;
-      after_overlay = state;
-      state->exited_frame = state->frame;
-      if (state->trace_frames != 0) {
-        log::i("[FFXIV Dalamud] EXIT runtime=", state->runtime, " frame=", state->frame,
-               " native_indexed_draws=", state->draws, " presentation_draws=", state->main_draws);
-      }
+      state->correction_candidate = false;
     }
   } exit_scope{state};
 
-  // Restrict the no-UI experiment to the main HDR10 contract proven in the
-  // Stage 1 capture. Detached/other-format/multi-buffer runtimes pass through.
+  // Preserve the main HDR10 single-buffer/proxy identity contract.
   auto* data = renodx::utils::data::Get<renodx::mods::swapchain::DeviceData>(runtime->get_device());
-  if (state->frame != 0 && state->color_space == api::color_space::hdr10_st2084
+  if (state->presented && state->color_space == api::color_space::hdr10_st2084
       && data != nullptr && data->primary_swapchain_window == runtime->get_hwnd()
       && data->swapchain_proxy_passes.contains(presentation)
       && runtime->get_back_buffer_count() == 1 && state->presentation_identity != 0
       && state->presentation_identity == state->buffer_zero_identity
       && state->presentation_identity == state->native_buffer_zero_identity
-      && state->proxy_identity != 0 && state->presentation_identity != state->proxy_identity) {
-    ComPtr<ID3D11Texture2D> texture;
-    if (SUCCEEDED(reinterpret_cast<ID3D11Resource*>(presentation)->QueryInterface(IID_PPV_ARGS(&texture)))) {
-      struct ObservationGuard {
-        bool previous = observing;
-        ~ObservationGuard() { observing = previous; }
-      } observation_guard;
-      observing = true;
-      state->round_trip.Run(runtime, state->context.Get(), texture.Get(), state->presentation_identity, state->frame, state->trace_frames != 0);
-    } else {
-      state->round_trip.Skip("presentation is not Texture2D");
-    }
-  } else {
-    state->round_trip.Skip("outside validated main HDR10 single-buffer contract");
+      && state->proxy_identity != 0 && state->presentation_identity != state->proxy_identity
+      && std::isfinite(state->ui_nits) && state->ui_nits >= 0.f) {
+    state->correction_candidate = true;
   }
   original_overlay(runtime);
 }
@@ -573,32 +804,27 @@ inline void Use(DWORD reason) {
     reshade::register_event<Event::destroy_effect_runtime>(OnDestroyRuntime);
     reshade::register_event<Event::init_swapchain>(OnInitSwapchain);
     reshade::register_event<Event::destroy_swapchain>(OnDestroySwapchain);
-    reshade::register_event<Event::reshade_finish_effects>(OnFinishEffects);
-    reshade::register_event<Event::reshade_present>(OnReShadePresent);
-    reshade::register_event<Event::reshade_open_overlay>(OnOpenOverlay);
     IdentifyCallback();  // Also handles Dalamud registering before RenoDX loads.
-    log::i("[FFXIV Dalamud] ARMED stage=2 background-PQ-roundtrip-only ReShade=6.8.0.2155 SHA256=0CEE63F9C9F13F3AC909C5B4903F4DBB4B719A7AB3B4F13B0DEAF83C814B94F7");
   } else if (reason == DLL_PROCESS_DETACH && attached) {
     const std::lock_guard lock(registration_mutex);
     RestoreDispatch();
-    for (auto& state : runtimes) state.round_trip.Reset("addon_detach");
+    for (auto& state : runtimes) {
+      RestoreDirectPQ(&state);
+      state.direct_pq = {};
+    }
     original_overlay = nullptr;
     owner = nullptr;
     reshade::unregister_event<Event::init_effect_runtime>(OnInitRuntime);
     reshade::unregister_event<Event::destroy_effect_runtime>(OnDestroyRuntime);
     reshade::unregister_event<Event::init_swapchain>(OnInitSwapchain);
     reshade::unregister_event<Event::destroy_swapchain>(OnDestroySwapchain);
-    reshade::unregister_event<Event::reshade_finish_effects>(OnFinishEffects);
-    reshade::unregister_event<Event::reshade_present>(OnReShadePresent);
-    reshade::unregister_event<Event::reshade_open_overlay>(OnOpenOverlay);
     // Do not swallow detach errors and unload executable hook targets. The
     // existing Detours utility throws if it cannot restore its own hooks.
     if (native_hooks) renodx::utils::detour::Uninstall(native_detours);
     renodx::utils::detour::Uninstall(export_detours);
     native_hooks = attached = false;
-    active = after_overlay = nullptr;
+    active = nullptr;
     for (auto& state : runtimes) state = {};
-    log::i("[FFXIV Dalamud] DETACHED dispatch restored; all native hooks removed");
   }
 }
 

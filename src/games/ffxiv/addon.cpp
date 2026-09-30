@@ -294,7 +294,7 @@ void OnPresent(reshade::api::command_queue* queue, reshade::api::swapchain* swap
   // Registered after the shared proxy pass so this resets tracking for the next frame.
   track_next_copy = false;
   shader_injection.copyTracker = 0;
-  renodx::games::ffxiv::dalamud_overlay::OnPresent(swapchain);
+  renodx::games::ffxiv::dalamud_overlay::OnPresent(swapchain, shader_injection.toneMapUINits);
 }
 
 BOOL APIENTRY DllMain(HMODULE h_module, DWORD fdw_reason, LPVOID lpv_reserved) {

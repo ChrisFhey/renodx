@@ -1,0 +1,964 @@
+15:32:26:975 [33624] | INFO  | Initializing crosire's ReShade version '6.8.0.2155' (64-bit) loaded from 'H:\Games\FFXIV\game\d3d11.dll' into 'H:\Games\FFXIV\game\ffxiv_dx11.exe' (0x6F24790F) ...
+15:32:26:977 [33624] | INFO  | Registering hooks for 'user32.dll' ...
+15:32:26:978 [33624] | INFO  | > Libraries loaded.
+15:32:26:981 [33624] | INFO  | > Found 21 match(es). Installing ...
+15:32:27:025 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\dinput.dll' ...
+15:32:27:029 [33624] | INFO  | > Delayed.
+15:32:27:030 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\dinput8.dll' ...
+15:32:27:031 [33624] | INFO  | > Libraries loaded.
+15:32:27:032 [33624] | INFO  | > Found 2 match(es). Installing ...
+15:32:27:074 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d2d1.dll' ...
+15:32:27:074 [33624] | INFO  | > Delayed.
+15:32:27:074 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d3d9.dll' ...
+15:32:27:074 [33624] | INFO  | > Delayed.
+15:32:27:074 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d3d10.dll' ...
+15:32:27:074 [33624] | INFO  | > Delayed.
+15:32:27:074 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d3d10_1.dll' ...
+15:32:27:075 [33624] | INFO  | > Delayed.
+15:32:27:075 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d3d11.dll' ...
+15:32:27:075 [33624] | INFO  | > Delayed until first call to an exported function.
+15:32:27:075 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\d3d12.dll' ...
+15:32:27:075 [33624] | INFO  | > Delayed.
+15:32:27:075 [33624] | INFO  | Registering hooks for 'C:\WINDOWS\system32\dxgi.dll' ...
+15:32:27:075 [33624] | INFO  | > Libraries loaded.
+15:32:27:075 [33624] | INFO  | > Found 5 match(es). Installing ...
+15:32:27:115 [33624] | INFO  | Registering hooks for 'openvr_api.dll' ...
+15:32:27:115 [33624] | INFO  | > Delayed.
+15:32:27:115 [33624] | INFO  | Initialized.
+15:32:27:131 [33476] | INFO  | Redirecting CreateDXGIFactory1(riid = {C1B6694F-FF09-44A9-B03C-77900A0A1D17}, ppFactory = 00000091ACAFF270) ...
+15:32:27:145 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {770AAE78-F26F-4DBA-A829-253C83D1B387}, ppFactory = 00000091AC3AF0B8) ...
+15:32:28:185 [33624] | INFO  | Redirecting RegisterClassExA(lpWndClassEx = 00000091AC3AF3B0 { "FFXIVGAME", style = 0x3 }) ...
+15:32:28:185 [33624] | INFO  | > Adding 'CS_OWNDC' window class style flag to "FFXIVGAME".
+15:32:28:404 [ 3816] | INFO  | Redirecting RegisterClassW(lpWndClass = 00000091B16BFE70 { "ShellHandwritingWorkerWindowClass", style = 0 }) ...
+15:32:28:427 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3AE978) ...
+15:32:28:429 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3AE748) ...
+15:32:28:429 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3AE7C8) ...
+15:32:28:432 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3AE878) ...
+15:32:28:433 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000260544FA018) ...
+15:32:28:434 [33624] | INFO  | Redirecting D3D11CreateDevice(pAdapter = 00000250ABE2B020, DriverType = 0, Software = 0000000000000000, Flags = 0x80, pFeatureLevels = 00007FFBFABA8038, FeatureLevels = 1, SDKVersion = 7, ppDevice = 00000260544FA028, pFeatureLevel = 00000260544FA010, ppImmediateContext = 00000260544FA030) ...
+15:32:28:434 [33624] | INFO  | > Passing on to D3D11CreateDeviceAndSwapChain:
+15:32:28:434 [33624] | INFO  | Installing export hooks for 'C:\WINDOWS\system32\d3d11.dll' ...
+15:32:28:435 [33624] | INFO  | > Found 3 match(es). Installing ...
+15:32:28:435 [33624] | INFO  | Redirecting D3D11CreateDeviceAndSwapChain(pAdapter = 00000250ABE2B020, DriverType = 0, Software = 0000000000000000, Flags = 0x80, pFeatureLevels = 00007FFBFABA8038, FeatureLevels = 1, SDKVersion = 7, pSwapChainDesc = 0000000000000000, ppSwapChain = 0000000000000000, ppDevice = 00000260544FA028, pFeatureLevel = 00000260544FA010, ppImmediateContext = 00000260544FA030) ...
+15:32:28:436 [33624] | INFO  | Searching for add-ons (*.addon, *.addon64) in 'H:\Games\FFXIV\game' ...
+15:32:28:436 [33624] | INFO  | Loading add-on from 'H:\Games\FFXIV\game\frame_capture.addon64' ...
+15:32:28:437 [33624] | INFO  | Registered add-on "Frame Capture" v1.0.0.1 using ReShade API version 1.
+15:32:28:437 [33624] | INFO  | Loading add-on from 'H:\Games\FFXIV\game\renodx-ffxiv.addon64' ...
+15:32:28:440 [33624] | INFO  | Registered add-on "RenoDX" v0.2026.925.1513 using ReShade API version 18.
+15:32:28:440 [33624] | INFO  | [RenoDX] ResourceUtil attached.
+15:32:28:440 [33624] | INFO  | [RenoDX] utils::swapchain attached.
+15:32:28:440 [33624] | INFO  | [RenoDX] Resource upgrade attached.
+15:32:28:441 [33624] | INFO  | [RenoDX] mods::swapchain attached.
+15:32:28:441 [33624] | INFO  | [RenoDX] PipelineLayoutUtil attached.
+15:32:28:441 [33624] | INFO  | [RenoDX] utils::shader attached.
+15:32:28:441 [33624] | INFO  | [RenoDX] DescriptorTableUtil attached.
+15:32:28:441 [33624] | INFO  | [RenoDX] mods::shader attached.
+15:32:28:442 [33624] | INFO  | [RenoDX] mods::shader(Attached Custom Shaders: 10 from 625659792720 to 140719995553152)
+15:32:28:442 [33624] | INFO  | [RenoDX] mods::shader(Attached Injections: 17 at 140719995559536)
+15:32:28:446 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ARMED instrumentation-only ReShade=6.8.0.2155 SHA256=0CEE63F9C9F13F3AC909C5B4903F4DBB4B719A7AB3B4F13B0DEAF83C814B94F7
+15:32:28:956 [33624] | INFO  | Using feature level b100.
+15:32:28:956 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnInitDevice(2615637178776, api: d3d11)
+15:32:28:956 [33624] | INFO  | [RenoDX] mods::swapchain::OnInitDevice(0x00000261001ff998, native: 0x00000250adfc6950)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Hooking device: 2615637178776, api: d3d11)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x1f264d17)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x9b242d09)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x27ebc404)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xfe5b6b3e)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xf6e81a1b)
+15:32:28:957 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xcdc56365)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x85e777ef)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x1f264d17)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x9b242d09)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x27ebc404)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xfe5b6b3e)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x6cffd968)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xf8f57f0a)
+15:32:28:958 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xf6e81a1b)
+15:32:28:959 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xcdc56365)
+15:32:28:959 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xb0ce42b9)
+15:32:28:959 [33624] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x85e777ef)
+15:32:28:959 [33624] | INFO  | [RenoDX] mods::shader::OnInitDevice(2615637178776)
+15:32:28:959 [33624] | WARN  | [RenoDX] mods::shader::OnInitPipelineLayout(Using last slot for buffer injection 0x00000250ade71050: 13 )
+15:32:28:959 [33624] | INFO  | [RenoDX] mods::shader::OnInitPipelineLayout(Creating D3D11 Layout 0x00000250aed4e610: 1 )
+15:32:28:959 [33624] | INFO  | [RenoDX] mods::shader::OnInitPipelineLayout(0x00000250ade71050, injection index: 0, descriptor injection index: -1, descriptor injection count: 0, injection layout: 0x00000250aed4e610, cbvIndex:13 )
+15:32:28:960 [33624] | INFO  | Redirecting IDXGIFactory::CreateSwapChain(this = 00000250ABE27F70, pDevice = 00000261001FF990, pDesc = 00000091AC3AE960, ppSwapChain = 00000091AC3AE930) ...
+15:32:28:960 [33624] | INFO  | > Dumping swap chain description:
+15:32:28:960 [33624] | INFO  |   +-----------------------------------------+-----------------------------------------+
+15:32:28:960 [33624] | INFO  |   | Parameter                               | Value                                   |
+15:32:28:960 [33624] | INFO  |   +-----------------------------------------+-----------------------------------------+
+15:32:28:960 [33624] | INFO  |   | Width                                   | 3440                                    |
+15:32:28:960 [33624] | INFO  |   | Height                                  | 1440                                    |
+15:32:28:960 [33624] | INFO  |   | RefreshRate                             | 59973               1000                |
+15:32:28:961 [33624] | INFO  |   | Format                                  | DXGI_FORMAT_R8G8B8A8_UNORM              |
+15:32:28:961 [33624] | INFO  |   | ScanlineOrdering                        | 1                                       |
+15:32:28:961 [33624] | INFO  |   | Scaling                                 | 0                                       |
+15:32:28:961 [33624] | INFO  |   | SampleCount                             | 1                                       |
+15:32:28:961 [33624] | INFO  |   | SampleQuality                           | 0                                       |
+15:32:28:961 [33624] | INFO  |   | BufferUsage                             | 0x20                                    |
+15:32:28:961 [33624] | INFO  |   | BufferCount                             | 2                                       |
+15:32:28:961 [33624] | INFO  |   | OutputWindow                            | 00000000000A0F62                        |
+15:32:28:961 [33624] | INFO  |   | Windowed                                | TRUE                                    |
+15:32:28:961 [33624] | INFO  |   | SwapEffect                              | 0                                       |
+15:32:28:961 [33624] | INFO  |   | Flags                                   | 0x2                                     |
+15:32:28:961 [33624] | INFO  |   +-----------------------------------------+-----------------------------------------+
+15:32:28:961 [33624] | DEBUG | [RenoDX] mods::swapchain::OnCreateSwapchain()
+15:32:28:961 [33624] | INFO  | [RenoDX] mods::swapchain::ShouldModifySwapchain(Checking class name: FFXIVGAME)
+15:32:28:962 [33624] | INFO  | [RenoDX] mods::swapchain::OnCreateSwapchain(swap: r8g8b8a8_unorm => r10g10b10a2_unorm, present mode: 0x0 => 0x4, present flag: 0x2 (ALLOW_MODE_SWITCH) => 0x800 (ALLOW_TEARING), buffers:2 => 2, fullscreen:0 => 0, refresh:59.973 => 59.973, width: 3440, height: 1440)
+15:32:28:962 [33624] | INFO  | Redirecting RegisterClassExW(lpWndClassEx = 00000091AC3AE3F0 { "OptiDx11SwapchainHost", style = 0 }) ...
+15:32:28:965 [33624] | INFO  | Installing delayed hooks for 'C:\WINDOWS\system32\d3d12.dll' (Just loaded via LoadLibrary('C:\WINDOWS\SYSTEM32\d3d12.dll')) ...
+15:32:28:965 [33624] | INFO  | > Found 8 match(es). Installing ...
+15:32:29:030 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {1BC6EA02-EF36-464F-BF0C-21CA39E5168A}, ppFactory = 00000091AC3ADC18) ...
+15:32:29:033 [33624] | INFO  | Redirecting CreateDXGIFactory2(Flags = 0x80000000, riid = {1BC6EA02-EF36-464F-BF0C-21CA39E5168A}, ppFactory = 00000091AC3AD388) ...
+15:32:29:136 [33624] | INFO  | Redirecting CreateDXGIFactory2(Flags = 0x80000000, riid = {1BC6EA02-EF36-464F-BF0C-21CA39E5168A}, ppFactory = 00000091AC3AD818) ...
+15:32:29:391 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3ACB90) ...
+15:32:30:823 [33624] | INFO  | Redirecting CreateDXGIFactory1(riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091AC3AC890) ...
+15:32:31:688 [33624] | INFO  | Running on NVIDIA GeForce RTX 5090 Driver 616.56.
+15:32:31:894 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnInitSwapchain(reset resource upgrade)
+15:32:31:894 [33624] | DEBUG | [RenoDX] mods::swapchain::OnInitSwapchain(0x00000250aa3f9e10, resize: false)
+15:32:31:894 [33624] | INFO  | [RenoDX] mods::swapchain::ShouldModifySwapchain(Checking class name: FFXIVGAME)
+15:32:31:894 [33624] | INFO  | [RenoDX] mods::swapchain::OnInitSwapchain(Primary swapchain desc: 3440x1440, format: r10g10b10a2_unorm, hwnd: 0x00000000000a0f62, device: 0x00000261001ff998)
+15:32:31:895 [33624] | DEBUG | [RenoDX] mods::swapchain::CheckSwapchainSize(set DXGI_MWA_NO_WINDOW_CHANGES)
+15:32:31:895 [33624] | DEBUG | [RenoDX] mods::swapchain::CheckSwapchainSize(screen_width: 3440, screen_height: 1440, buffer_width: 3440, buffer_height: 1440, buffer_format: r10g10b10a2_unorm, target_format: r10g10b10a2_unorm)
+15:32:31:896 [33624] | INFO  | [RenoDX] mods::swapchain::OnSetFullscreenState(fake_fullscreen_pending=0, hwnd=0x00000000000a0f62)
+15:32:31:898 [33624] | INFO  | [RenoDX] utils::swapchain::OnInitEffectRuntime(Runtime: 2615637178776, colorspace: hdr10_st2084)
+15:32:31:898 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RUNTIME_INIT runtime=00000250B294EFD0 native_swapchain=00000261046D9FA0 device=00000250ADFC6950 immediate_context=00000250ADFC7CD8 native_supported=1
+15:32:31:899 [33624] | INFO  | Recreated runtime environment on runtime 00000250B294EFD0 ('H:\Games\FFXIV\game\ReShade.ini').
+15:32:31:899 [33624] | INFO  | Redirecting IDXGISwapChain::SetFullscreenState(this = 00000250AEC75ED0, Fullscreen = FALSE, pTarget = 0000000000000000) ...
+15:32:31:899 [33624] | INFO  | [RenoDX] mods::swapchain::OnSetFullscreenState(fake_fullscreen_pending=0, hwnd=0x00000000000a0f62)
+15:32:32:960 [33624] | INFO  | Redirecting DirectInput8Create(hinst = 00007FF73B840000, dwVersion = 800, riidltf = {BF798030-483A-4DA2-AA99-5D64ED369700}, ppvOut = 00007FF73E2D2CC8, pUnkOuter = 0000000000000000) ...
+15:32:33:107 [33624] | INFO  | Redirecting IDirectInput8A::CreateDevice(this = 000002610E8F3780, rguid = {6F1D2B60-D5A0-11CF-BFC7-444553540000}, lplpDirectInputDevice = 000002610E8F38F0, pUnkOuter = 0000000000000000) ...
+15:32:33:228 [15140] | DEBUG | [RenoDX] utils::shader::BuildReplacementPipeline(Replacing 0x6cffd968)
+15:32:33:228 [15140] | DEBUG | [RenoDX] utils::shader::PipelineShaderDetails(Replacing pipeline for 0x6cffd968, pipeline: 0x000002631e79aa78, index: 0, type: pixel_shader, stage: pixel_shader)
+15:32:33:232 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 1) [1/2]
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3ada0, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:233 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 2) [1/2]
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade39d20, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:233 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 3) [1/2]
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3b5e0, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:233 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 4) [1/2]
+15:32:33:233 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:234 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3a820, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:234 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 5) [1/2]
+15:32:33:234 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:234 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3c660, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:234 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 6) [1/2]
+15:32:33:235 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:235 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3c920, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:235 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 7) [1/2]
+15:32:33:235 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:235 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3c3a0, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:235 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 8) [1/2]
+15:32:33:235 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:236 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3cbe0, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:237 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 9) [1/2]
+15:32:33:237 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:237 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x00000250ade3ece0, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:33:242 [33624] | DEBUG | [RenoDX] utils::resource::upgrade::OnCreateResource(counting target, format: b8g8r8a8_unorm, usage: 1cc4, index: -1, counted: 10) [1/2]
+15:32:33:242 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResource(Upgrading, flags: 0x0, state: 0x80000000, format: b8g8r8a8_unorm => r16g16b16a16_float, width: 3440, height: 1440, usage: undefined(1cc4), target_dimensions: -1x-1x-1, target_aspect: -2, complete: 0)
+15:32:33:242 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnCreateResourceView(upgrading, found_upgrade: true, expected: true, forced_native_format: false, view type: texture_2d => texture_2d, view format: b8g8r8a8_unorm => b8g8r8a8_unorm => r16g16b16a16_float, typeless view/resource: b8g8r8a8_typeless => r16g16b16a16_typeless, resource: 0x000002631e712e60, resource width: 3440, resource height: 1440, resource format: r16g16b16a16_float, resource usage: shader_resource, tracked resource: true, has_upgrade_target: true, has_clone_target: false)
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'H:\Games\FFXIV\game\reshade-shaders\Shaders\luluco250' with error code 2.
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Radegast' with error code 2.
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'H:\Games\FFXIV\game\reshade-shaders\Shaders\akgunter' with error code 2.
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'F:\Games\FFXIV\game\reshade-shaders\Shaders\Pumbo\' with error code 3.
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'F:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\' with error code 3.
+15:32:35:241 [33624] | WARN  | Failed to resolve search path 'F:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__include\' with error code 3.
+15:32:35:242 [33624] | WARN  | Failed to resolve search path 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CShade' with error code 2.
+15:32:35:242 [33624] | WARN  | Failed to resolve search path 'H:\Games\FFXIV\game\reshade-shaders\Shaders\vort_Shaders' with error code 2.
+15:32:35:246 [33624] | ERROR | Failed to load font from 'H:\Games\FFXIV\game\ProggyClean.ttf' with error code 2!
+15:32:35:287 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\AspectRatioComposition.fx' in 0.042000 s.
+15:32:35:287 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\ChromaticAberration.fx' in 0.041000 s.
+15:32:35:287 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\DepthAlpha.fx' in 0.042000 s.
+15:32:35:288 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\HighPassSharpen.fx' in 0.043000 s.
+15:32:35:290 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Censor.fx' in 0.045000 s.
+15:32:35:296 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTFakeLottes.fx' in 0.051000 s.
+15:32:35:296 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\LumaLines.fx' in 0.050000 s.
+15:32:35:299 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_06_Posterize_Pixelate.fx' in 0.055000 s.
+15:32:35:300 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Phosphor.fx' in 0.055000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Phosphor.fx(42, 41): warning X3206: implicit truncation of vector type
+
+15:32:35:304 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AdaptiveSharpen.fx' in 0.059000 s.
+15:32:35:317 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_uber_mask.fx' in 0.071000 s.
+15:32:35:317 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\HQ4X.fx' in 0.029000 s.
+15:32:35:318 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Dither.fx' in 0.030000 s with warnings:
+warning: V__sRetroFog_BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:321 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\ColorfulPoster.fx' in 0.034000 s.
+15:32:35:321 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\CEOG.fx' in 0.030000 s.
+15:32:35:338 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\BilateralComic.fx' in 0.094000 s.
+15:32:35:339 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\ColorMatrix.fx' in 0.052000 s.
+15:32:35:346 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTGeom.fx' in 0.049000 s.
+15:32:35:348 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\HSLShift.fx' in 0.030000 s.
+15:32:35:351 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Flashlight.fx' in 0.033000 s with warnings:
+warning: V__sColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:364 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\PowerVR2.fx' in 0.063000 s.
+15:32:35:364 [36028] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\BX_XChannelCurve.fx' in 0.118000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\BX_XChannelCurve.fx(732, 19): warning X3206: implicit truncation of vector type
+
+15:32:35:369 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\ColorIsolation.fx' in 0.047000 s.
+15:32:35:380 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\CRT.fx' in 0.036000 s.
+15:32:35:381 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_uber_motion.fx' in 0.063000 s.
+15:32:35:384 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ChromaSubSampling.fx' in 0.062000 s.
+15:32:35:384 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\FlexibleCA.fx' in 0.032000 s.
+15:32:35:386 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_dof.fx' in 0.141000 s.
+15:32:35:392 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\R57_PAL.fx' in 0.028000 s.
+15:32:35:397 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\CubeLUT1D.fx' in 0.033000 s.
+15:32:35:399 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\KeepUI_FFXIV.fx' in 0.050000 s.
+15:32:35:400 [36000] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx' in 0.030000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(414, 33): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(416, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(417, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(418, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(419, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(422, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(423, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(424, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\Comic.fx(425, 17): warning X3206: implicit truncation of vector type
+
+15:32:35:400 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx' in 0.053000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(240, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(241, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(242, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(243, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(244, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(245, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(246, 19): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTHyllian.fx(247, 19): warning X3206: implicit truncation of vector type
+
+15:32:35:405 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Curves.fx' in 0.024000 s.
+15:32:35:408 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\MaskGlowAdvanced.fx' in 0.111000 s.
+15:32:35:417 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\RetroCRT.fx' in 0.023000 s.
+15:32:35:421 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\BilateralCS.fx' in 0.081000 s.
+15:32:35:423 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AmbientLight.fx' in 0.118000 s.
+15:32:35:430 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Layer.fx' in 0.030000 s.
+15:32:35:432 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\CubeLUT3D.fx' in 0.033000 s.
+15:32:35:434 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\DPX.fx' in 0.029000 s.
+15:32:35:436 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\MeshEdges.fx' in 0.035000 s.
+15:32:35:438 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\RGBLCD.fx' in 0.021000 s.
+15:32:35:443 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\FocalDOF.fx' in 0.058000 s.
+15:32:35:446 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTKurg.fx' in 0.045000 s.
+15:32:35:451 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ASCII.fx' in 0.028000 s.
+15:32:35:451 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_lightroom.fx' in 0.065000 s.
+15:32:35:454 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Clarity2.fx' in 0.070000 s.
+15:32:35:454 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Levels.fx' in 0.024000 s.
+15:32:35:460 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\FakeHDR.fx' in 0.025000 s.
+15:32:35:463 [36040] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Anagrama\blur.fx' in 0.217000 s with warnings:
+warning: V__back_buffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:464 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\MultiTonePoster.fx' in 0.028000 s.
+15:32:35:467 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\scanlines-abs.fx' in 0.028000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\scanlines-abs.fx(73, 1): warning X4576: 'PS_ScanlinesAbs': input parameter 'angle' semantic does not match vertex shader one
+
+15:32:35:481 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\FilmGrain.fx' in 0.020000 s.
+15:32:35:481 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ColorInversion.fx' in 0.026000 s.
+15:32:35:482 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\LevelsPlus.fx' in 0.026000 s.
+15:32:35:491 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\scanlines-fract.fx' in 0.023000 s.
+15:32:35:492 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\MotionFocus.fx' in 0.082000 s.
+15:32:35:492 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTLottes.fx' in 0.046000 s.
+15:32:35:498 [35996] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Depth3D\SuperDepth3D.fx' in 0.198000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Depth3D\SuperDepth3D.fx(619, 35): warning X3206: implicit truncation of vector type
+
+15:32:35:500 [36072] | INFO  | Redirecting D3D11CreateDevice(pAdapter = 0000000000000000, DriverType = 1, Software = 0000000000000000, Flags = 0, pFeatureLevels = 0000000000000000, FeatureLevels = 0, SDKVersion = 7, ppDevice = 00000091B6F1F5B0, pFeatureLevel = 0000000000000000, ppImmediateContext = 0000000000000000) ...
+15:32:35:501 [36072] | INFO  | > Passing on to D3D11CreateDeviceAndSwapChain:
+15:32:35:501 [36072] | INFO  | Redirecting D3D11CreateDeviceAndSwapChain(pAdapter = 0000000000000000, DriverType = 1, Software = 0000000000000000, Flags = 0, pFeatureLevels = 0000000000000000, FeatureLevels = 0, SDKVersion = 7, pSwapChainDesc = 0000000000000000, ppSwapChain = 0000000000000000, ppDevice = 00000091B6F1F5B0, pFeatureLevel = 0000000000000000, ppImmediateContext = 0000000000000000) ...
+15:32:35:502 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\FramerateLimiter.fx' in 0.059000 s.
+15:32:35:502 [36072] | INFO  | Redirecting CreateDXGIFactory2(Flags = 0x80000000, riid = {7B7166EC-21C7-44AE-B21A-C9AE321AE369}, ppFactory = 00000091B6F1E698) ...
+15:32:35:511 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ColorMod.fx' in 0.029000 s.
+15:32:35:511 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\LiftGammaGain.fx' in 0.029000 s.
+15:32:35:521 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\TVCRTPixels.fx' in 0.029000 s.
+15:32:35:524 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\FXAA.fx' in 0.043000 s.
+15:32:35:525 [36000] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx' in 0.060000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(69, 64): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(85, 76): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(100, 94): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(101, 94): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(110, 76): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(111, 76): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(116, 72): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RemoveTint.fx(117, 72): warning X3206: implicit truncation of vector type
+
+15:32:35:532 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ColorToAlpha.fx' in 0.021000 s.
+15:32:35:536 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_mxao.fx' in 0.084000 s.
+15:32:35:538 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTLottes2.fx' in 0.045000 s.
+15:32:35:545 [36072] | INFO  | Using feature level b000.
+15:32:35:547 [36072] | DEBUG | [RenoDX] utils::resource::upgrade::OnInitDevice(2615862857656, api: d3d11)
+15:32:35:547 [36072] | INFO  | [RenoDX] mods::swapchain::OnInitDevice(0x000002610d938fb8, native: 0x00000263a778ce80)
+15:32:35:547 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Hooking device: 2615862857656, api: d3d11)
+15:32:35:547 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x1f264d17)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x9b242d09)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x27ebc404)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xfe5b6b3e)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xf6e81a1b)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0xcdc56365)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered compile-time replacement: 0x85e777ef)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x1f264d17)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x9b242d09)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x27ebc404)
+15:32:35:548 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Layer.fx' in 0.023000 s with warnings:
+warning: V__Layer_Tex: another effect (Layer.fx) already created a texture with the same name but different dimensions
+warning: V__Layer_Tex: another effect (Layer.fx) already created a texture with a different image file
+
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xfe5b6b3e)
+15:32:35:548 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x6cffd968)
+15:32:35:549 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xf8f57f0a)
+15:32:35:549 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xf6e81a1b)
+15:32:35:549 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xcdc56365)
+15:32:35:549 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0xb0ce42b9)
+15:32:35:549 [36072] | DEBUG | [RenoDX] utils::shader::OnInitDevice(Registered runtime replacement: 0x85e777ef)
+15:32:35:549 [36072] | INFO  | [RenoDX] mods::shader::OnInitDevice(2615862857656)
+15:32:35:549 [36072] | WARN  | [RenoDX] mods::shader::OnInitPipelineLayout(Using last slot for buffer injection 0x00000263a497a500: 13 )
+15:32:35:549 [36072] | INFO  | [RenoDX] mods::shader::OnInitPipelineLayout(Creating D3D11 Layout 0x00000263a497a560: 1 )
+15:32:35:549 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daodan\RetroTint.fx' in 0.023000 s.
+15:32:35:550 [36072] | INFO  | [RenoDX] mods::shader::OnInitPipelineLayout(0x00000263a497a500, injection index: 0, descriptor injection index: -1, descriptor injection count: 0, injection layout: 0x00000263a497a560, cbvIndex:13 )
+15:32:35:554 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ColShift.fx' in 0.021000 s.
+15:32:35:556 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Levels.fx' in 0.007000 s.
+15:32:35:562 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\LiftGammaGain.fx' in 0.006000 s.
+15:32:35:564 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_sharp.fx' in 0.027000 s.
+15:32:35:567 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Bloom.fx' in 0.115000 s.
+15:32:35:568 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\OrtonBloom.fx' in 0.076000 s.
+15:32:35:571 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\AspectRatio.fx' in 0.021000 s.
+15:32:35:576 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\HexLensFlare.fx' in 0.074000 s.
+15:32:35:583 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\LumaSharpen.fx' in 0.020000 s.
+15:32:35:583 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Composition.fx' in 0.029000 s.
+15:32:35:584 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\LightDoF.fx' in 0.072000 s.
+15:32:35:587 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTPi.fx' in 0.046000 s.
+15:32:35:590 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\VHS.fx' in 0.069000 s.
+15:32:35:593 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\LumaSharpen.fx' in 0.008000 s.
+15:32:35:593 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\CMAA_2.fx' in 0.170000 s.
+15:32:35:595 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Border.fx' in 0.027000 s.
+15:32:35:598 [36028] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\ATMOSPHERE.fx' in 0.165000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\Include/Functions/GaussianBlurBounds.fxh(41, 8): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\Include/Functions/GaussianBlurBounds.fxh(84, 8): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\ATMOSPHERE.fx(135, 15): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\ATMOSPHERE.fx(141, 15): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\ATMOSPHERE.fx(235, 24): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\ATMOSPHERE.fx(245, 21): warning X3206: implicit truncation of vector type
+
+15:32:35:606 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\PatternShading.fx' in 0.037000 s.
+15:32:35:607 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Monochrome.fx' in 0.023000 s.
+15:32:35:610 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\CrossProcess.fx' in 0.026000 s.
+15:32:35:614 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\BeforeAfter.fx' in 0.042000 s.
+15:32:35:618 [36024] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_uber_rt.fx' in 0.237000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_uber_rt.fx(3397, 1): error X3020: 'V__DH_UBER_RT_0206__reinhardTex': cannot sample from texture that is also used as render target in the same pass
+
+15:32:35:620 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\VHS_RA.fx' in 0.030000 s.
+15:32:35:626 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Cartoon.fx' in 0.029000 s.
+15:32:35:626 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\LUT.fx' in 0.032000 s.
+15:32:35:628 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_ssr.fx' in 0.063000 s.
+15:32:35:630 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTPotatoCool.fx' in 0.042000 s.
+15:32:35:631 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Nostalgia.fx' in 0.023000 s with warnings:
+warning: V__Linear: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:636 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Chromakey.fx' in 0.021000 s.
+15:32:35:638 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\LiquidLens.fx' in 0.061000 s.
+15:32:35:644 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220.fx' in 0.024000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220.fx(106, 16): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220.fx(107, 14): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220.fx(108, 8): warning X3206: implicit truncation of vector type
+
+15:32:35:654 [35996] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Depth3D\SuperDepth3D_VR+.fx' in 0.156000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\Depth3D\SuperDepth3D_VR+.fx(5006, 1): error X3020: 'V__SuperDepth3DVR__texLumVR': cannot sample from texture that is also used as render target in the same pass
+
+15:32:35:655 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Sepia.fx' in 0.024000 s.
+15:32:35:657 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CAS.fx' in 0.031000 s.
+15:32:35:664 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ChromaticAberration.fx' in 0.005000 s.
+15:32:35:668 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ColorMatrix.fx' in 0.004000 s.
+15:32:35:670 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\ContrastSharpening.fx' in 0.034000 s.
+15:32:35:671 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_frame.fx' in 0.025000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_frame.fx(80, 16): warning X3206: implicit truncation of vector type
+
+15:32:35:678 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTPotatoWarm.fx' in 0.048000 s.
+15:32:35:678 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\DH_UI_TextDetect.fx' in 0.058000 s.
+15:32:35:681 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Pirate_Bloom.fx' in 0.074000 s.
+15:32:35:693 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Colourfulness.fx' in 0.023000 s.
+15:32:35:693 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_01A_RT_Correct_Contrast.fx' in 0.065000 s.
+15:32:35:694 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_night.fx' in 0.024000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_night.fx(164, 16): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_night.fx(165, 14): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\vt220_night.fx(166, 8): warning X3206: implicit truncation of vector type
+
+15:32:35:700 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CRT.fx' in 0.007000 s.
+15:32:35:701 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\CurvedMonitor.fx' in 0.030000 s.
+15:32:35:704 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Curves.fx' in 0.004000 s.
+15:32:35:706 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTRefresh.fx' in 0.027000 s.
+15:32:35:706 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_undither.fx' in 0.027000 s.
+15:32:35:716 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\zfast_crt.fx' in 0.021000 s.
+15:32:35:722 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\CRTGeomMOD.fx' in 0.111000 s.
+15:32:35:724 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\FilmicAnamorphSharpen.fx' in 0.023000 s.
+15:32:35:727 [36028] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\FILMDECK.fx' in 0.128000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\Include/Functions/GaussianBlurBounds.fxh(41, 8): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\Include/Functions/GaussianBlurBounds.fxh(84, 8): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\FILMDECK.fx(496, 18): warning X3206: implicit truncation of vector type
+
+15:32:35:727 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Daltonize.fx' in 0.022000 s.
+15:32:35:731 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\ContrastStretch.fx' in 0.136000 s.
+15:32:35:733 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_uniformity_correction.fx' in 0.025000 s.
+15:32:35:740 [36040] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Anagrama\hyperblur.fx' in 0.273000 s with warnings:
+warning: V__back_buffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:740 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\SMAA.fx' in 0.085000 s with warnings:
+warning: V__colorLinearSampler: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:743 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\AspectRatioMultiGrid.fx' in 0.027000 s.
+15:32:35:746 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Deblur.fx' in 0.023000 s.
+15:32:35:747 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\FilmicSharpen.fx' in 0.021000 s.
+15:32:35:751 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Deband.fx' in 0.024000 s.
+15:32:35:757 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_01B_RT_Correct_Color.fx' in 0.063000 s.
+15:32:35:760 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\BulgePinch.fx' in 0.027000 s.
+15:32:35:764 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Splitscreen.fx' in 0.022000 s.
+15:32:35:770 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Flipbook.fx' in 0.023000 s.
+15:32:35:773 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\DepthSharpen.fx' in 0.026000 s.
+15:32:35:773 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\CanvasFog.fx' in 0.029000 s.
+15:32:35:782 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\MagicBloom.fx' in 0.155000 s.
+15:32:35:784 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Denoise.fx' in 0.032000 s.
+15:32:35:784 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Technicolor.fx' in 0.020000 s.
+15:32:35:788 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SHADERDECK\FSR1_2X.fx' in 0.060000 s.
+15:32:35:790 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Image.fx' in 0.020000 s.
+15:32:35:790 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Monochrome.fx' in 0.007000 s.
+15:32:35:791 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_01_Color_Gamut.fx' in 0.033000 s.
+15:32:35:802 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\DepthSharpenStaticDof.fx' in 0.028000 s.
+15:32:35:803 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\BloomingHDR.fx' in 0.147000 s.
+15:32:35:803 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTSim.fx' in 0.096000 s.
+15:32:35:806 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\Drunk.fx' in 0.045000 s.
+15:32:35:808 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Technicolor2.fx' in 0.023000 s.
+15:32:35:812 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\CanvasMask.fx' in 0.038000 s.
+15:32:35:813 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Pirate_Depth_DOF.fx' in 0.131000 s.
+15:32:35:813 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\DeepFry.fx' in 0.081000 s.
+15:32:35:814 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\NightVision.fx' in 0.022000 s.
+15:32:35:816 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Detect_menus_and_videos_wrapper.fx' in 0.032000 s.
+15:32:35:822 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Interlaced.fx' in 0.031000 s.
+15:32:35:826 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\DisplayMod.fx' in 0.023000 s.
+15:32:35:829 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Tonemap.fx' in 0.020000 s.
+15:32:35:831 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Deconverge.fx' in 0.024000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Deconverge.fx(80, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Deconverge.fx(81, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Deconverge.fx(88, 17): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Deconverge.fx(89, 17): warning X3206: implicit truncation of vector type
+
+15:32:35:835 [35988] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Nostalgia.fx' in 0.021000 s with warnings:
+warning: V__Linear: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:840 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\MagicHDR.fx' in 0.201000 s.
+15:32:35:849 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_CHROMATICABERRATION.fx' in 0.060000 s.
+15:32:35:850 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\RadialSlitScan.fx' in 0.043000 s.
+15:32:35:852 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DisplayDepth.fx' in 0.035000 s.
+15:32:35:853 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Vibrance.fx' in 0.023000 s.
+15:32:35:857 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\ColorMask.fx' in 0.044000 s.
+15:32:35:862 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\DropShadow.fx' in 0.036000 s.
+15:32:35:864 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Clarity.fx' in 0.061000 s.
+15:32:35:868 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\LensDistort.fx' in 0.045000 s.
+15:32:35:876 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\MBMB.fx' in 0.036000 s.
+15:32:35:877 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Defocus.fx' in 0.044000 s.
+15:32:35:879 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Pirate_Depth_GI.fx' in 0.066000 s.
+15:32:35:879 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Vignette.fx' in 0.026000 s.
+15:32:35:886 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\Flip.fx' in 0.029000 s.
+15:32:35:887 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\Dehaze.fx' in 0.073000 s.
+15:32:35:888 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Emboss.fx' in 0.025000 s.
+15:32:35:888 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Letterbox.fx' in 0.020000 s.
+15:32:35:903 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\MinimalColorGrading.fx' in 0.025000 s with warnings:
+warning: V__BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:903 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\SlitScan.fx' in 0.052000 s.
+15:32:35:910 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT_lightroom.fx' in 0.072000 s.
+15:32:35:912 [35992] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_02_Bloom.fx' in 0.121000 s with warnings:
+warning: V__pd80_hqbloom__samplerLinColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:916 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Depth_Cues.fx' in 0.051000 s.
+15:32:35:916 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\DOSGame.fx' in 0.037000 s.
+15:32:35:918 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ExtendedLevels.fx' in 0.029000 s.
+15:32:35:929 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Pirate_FXAA.fx' in 0.049000 s.
+15:32:35:930 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\LUTTools.fx' in 0.041000 s.
+15:32:35:934 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\MultiFX.fx' in 0.031000 s with warnings:
+warning: V__sMultiFX_BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:936 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\AdaptiveTonemapper.fx' in 0.056000 s with warnings:
+warning: V__BackBuffer_Point: texture does not support sRGB sampling (back buffer format is not RGBA8)
+warning: V__BackBuffer_Linear: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:35:937 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_FILMGRAIN.fx' in 0.087000 s.
+15:32:35:948 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\EGAfilter.fx' in 0.031000 s.
+15:32:35:948 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\SplicedRadials.fx' in 0.045000 s.
+15:32:35:951 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_02_Bonus_LUT_pack.fx' in 0.037000 s.
+15:32:35:951 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\DLAA_Plus.fx' in 0.035000 s.
+15:32:35:955 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\MonitorGamma.fx' in 0.024000 s.
+15:32:35:957 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\FastSharpen.fx' in 0.038000 s.
+15:32:35:971 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\FreezeShot.fx' in 0.084000 s.
+15:32:35:972 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReBlur.fx' in 0.062000 s.
+15:32:35:978 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Fisheye Horizontal.fx' in 0.020000 s.
+15:32:35:980 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_02_Cinetools_LUT.fx' in 0.028000 s.
+15:32:35:981 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_HALFTONE.fx' in 0.043000 s.
+15:32:35:986 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\GaussianBlurCS.fx' in 0.098000 s.
+15:32:35:989 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\PerfectPerspective.fx' in 0.033000 s.
+15:32:35:994 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\Swirl.fx' in 0.045000 s.
+15:32:35:996 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\GTU.fx' in 0.047000 s.
+15:32:35:998 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\MagnifyingGlass.fx' in 0.026000 s.
+15:32:36:000 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReflectiveBumpMapping.fx' in 0.028000 s.
+15:32:36:002 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Fisheye Vertical.fx' in 0.023000 s.
+15:32:36:010 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Prism.fx' in 0.021000 s.
+15:32:36:011 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_02_LUT_Creator.fx' in 0.031000 s.
+15:32:36:012 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\NeoBloom.fx' in 0.077000 s with warnings:
+warning: V__FXShaders__BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:022 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\ImageAdjustment.fx' in 0.025000 s.
+15:32:36:026 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\Halftone.fx' in 0.039000 s.
+15:32:36:027 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CorgiFX\StageDepthPlus.fx' in 0.029000 s.
+15:32:36:034 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\SimpleGrain.fx' in 0.024000 s.
+15:32:36:035 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\PPFX_Bloom.fx' in 0.104000 s.
+15:32:36:036 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\rj_sharpen.fx' in 0.035000 s.
+15:32:36:041 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\TinyPlanet.fx' in 0.047000 s.
+15:32:36:041 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Sepia.fx' in 0.005000 s.
+15:32:36:043 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\NormalMap.fx' in 0.030000 s.
+15:32:36:044 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DOF.fx' in 0.192000 s.
+15:32:36:046 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_03_Color_Space_Curves.fx' in 0.033000 s.
+15:32:36:049 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\MaxG3D\HDRBloom.fx' in 0.307000 s.
+15:32:36:053 [35988] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SMAA.fx' in 0.011000 s with warnings:
+warning: V__colorLinearSampler: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:053 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Flair.fx' in 0.101000 s.
+15:32:36:054 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DPX.fx' in 0.009000 s.
+15:32:36:055 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\SunsetFilter.fx' in 0.021000 s.
+15:32:36:059 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\JPEG.fx' in 0.036000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\JPEG.fx(79, 29): warning X3206: implicit truncation of vector type
+
+15:32:36:063 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Splitscreen.fx' in 0.010000 s.
+15:32:36:067 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\CobraMask.fx' in 0.039000 s.
+15:32:36:067 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Overlay.fx' in 0.024000 s.
+15:32:36:073 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_03_Curved_Levels.fx' in 0.027000 s.
+15:32:36:073 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\Wave.fx' in 0.031000 s.
+15:32:36:076 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\GAUSSIAN.fx' in 0.073000 s.
+15:32:36:080 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\PPFX_Godrays.fx' in 0.044000 s.
+15:32:36:089 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SurfaceBlur.fx' in 0.025000 s.
+15:32:36:090 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_LOCALLAPLACIAN.fx' in 0.109000 s.
+15:32:36:092 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\MaxG3D\HDRMotionBlur.fx' in 0.042000 s.
+15:32:36:095 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Technicolor.fx' in 0.005000 s.
+15:32:36:099 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Warp-FX\ZigZag.fx' in 0.026000 s.
+15:32:36:101 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\TiltShift.fx' in 0.045000 s.
+15:32:36:102 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Technicolor2.fx' in 0.006000 s.
+15:32:36:106 [35984] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\EOTF_Boost.fx' in 0.051000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\EOTF_Boost.fx(204, 1): error X3020: 'V__TexBoostState': cannot sample from texture that is also used as render target in the same pass
+
+15:32:36:106 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\PiecewiseFilmicTonemap.fx' in 0.038000 s.
+15:32:36:106 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\LocalContrastCS.fx' in 0.079000 s.
+15:32:36:107 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Tonemap.fx' in 0.005000 s.
+15:32:36:113 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FakeHDR.fx' in 0.006000 s.
+15:32:36:115 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\LeiFX_OA.fx' in 0.056000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\LeiFX_OA.fx(121, 14): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\LeiFX_OA.fx(272, 16): warning X3206: implicit truncation of vector type
+
+15:32:36:129 [35992] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_03_Filmic_Adaptation.fx' in 0.055000 s with warnings:
+warning: V__pd80_filmicadaptation__samplerLinColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:130 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\MaxG3D\HDRSaturation.fx' in 0.036000 s.
+15:32:36:131 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\ColorSort_CS.fx' in 0.064000 s.
+15:32:36:131 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\TripleMonitor.fx' in 0.029000 s.
+15:32:36:134 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_LONGEXPOSURE.fx' in 0.044000 s.
+15:32:36:136 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\UIMask.fx' in 0.028000 s.
+15:32:36:139 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\GaussianBloom.fx' in 0.063000 s.
+15:32:36:141 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Vibrance.fx' in 0.005000 s.
+15:32:36:141 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MattiasCRT.fx' in 0.026000 s.
+15:32:36:149 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FakeMotionBlur.fx' in 0.035000 s.
+15:32:36:151 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Vignette.fx' in 0.008000 s.
+15:32:36:151 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\Mouse.fx' in 0.044000 s.
+15:32:36:153 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Pong.fx' in 0.046000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\FXShaders/Digits.fxh(827, 31): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Pong.fx(244, 38): warning X3206: implicit truncation of vector type
+
+15:32:36:154 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_03_Levels.fx' in 0.024000 s.
+15:32:36:159 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\PPFX_SSDO.fx' in 0.078000 s.
+15:32:36:160 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\ArcaneBloom.fx' in 0.224000 s.
+15:32:36:161 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\BarbatosNVSharpen.fx' in 0.029000 s.
+15:32:36:162 [36028] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_NVSHARPEN.fx' in 0.026000 s with warnings:
+warning: V__ColorInput: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:163 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\Droste.fx' in 0.031000 s.
+15:32:36:166 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MCAmber.fx' in 0.024000 s.
+15:32:36:168 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\GlobalAlpha.fx' in 0.028000 s.
+15:32:36:172 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\GloomAO.fx' in 0.117000 s.
+15:32:36:178 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\RetroFog.fx' in 0.024000 s with warnings:
+warning: V__sRetroFog_BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:178 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Reinhard.fx' in 0.019000 s.
+15:32:36:183 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_03_Shadows_Midtones_Highlights.fx' in 0.028000 s.
+15:32:36:185 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\ArtisticVignette.fx' in 0.025000 s.
+15:32:36:188 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MCGreen.fx' in 0.021000 s.
+15:32:36:189 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\METEOR\MartysMods_TODDYHANCER.fx' in 0.026000 s.
+15:32:36:194 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\CAA.fx' in 0.031000 s.
+15:32:36:200 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\warpsharp.fx' in 0.049000 s.
+15:32:36:201 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\Oilify.fx' in 0.049000 s.
+15:32:36:202 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Vectorscope.fx' in 0.070000 s.
+15:32:36:204 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\SCurve.fx' in 0.025000 s.
+15:32:36:204 [35984] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\fastBlur.fx' in 0.055000 s with warnings:
+warning: V__fastblur__samplerColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:205 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\NFAA.fx' in 0.032000 s.
+15:32:36:206 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_BlacknWhite.fx' in 0.023000 s.
+15:32:36:208 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\AspectRatioSuite.fx' in 0.022000 s.
+15:32:36:213 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MCOrange.fx' in 0.025000 s.
+15:32:36:218 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\GuestCRT.fx' in 0.050000 s.
+15:32:36:226 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\Frequency_CS.fx' in 0.062000 s.
+15:32:36:226 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\BAYER.fx' in 0.037000 s.
+15:32:36:226 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\ColorGrading.fx' in 0.031000 s.
+15:32:36:231 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Checkerboard.fx' in 0.022000 s.
+15:32:36:235 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Color_Balance.fx' in 0.028000 s.
+15:32:36:244 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ffxiv_crashpad.fx' in 0.039000 s.
+15:32:36:253 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\CMYK.fx' in 0.026000 s.
+15:32:36:254 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\ColorLab.fx' in 0.022000 s with warnings:
+warning: V__FXShaders__BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:265 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Halation.fx' in 0.046000 s.
+15:32:36:267 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Sketch.fx' in 0.063000 s with warnings:
+warning: V__SRGBBackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:269 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\Waveform.fx' in 0.066000 s.
+15:32:36:282 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\mdapt.fx' in 0.067000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\mdapt.fx(450, 1): error X3020: 'V__texMDAPTPassA': cannot sample from texture that is also used as render target in the same pass
+
+15:32:36:292 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Fubax\ZebraLines.fx' in 0.022000 s.
+15:32:36:293 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\ReVeil.fx' in 0.091000 s.
+15:32:36:293 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\DAA.fx' in 0.065000 s.
+15:32:36:295 [36016] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\CRT_Lottes.fx' in 0.040000 s with warnings:
+warning: V__sBackBuffer_Scale: texture does not support sRGB sampling (back buffer format is not RGBA8)
+warning: V__sBackBuffer_CRT: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:298 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\HueFX.fx' in 0.032000 s.
+15:32:36:298 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\DINN - BASE.fx' in 0.044000 s.
+15:32:36:300 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Color_Gradients.fx' in 0.063000 s.
+15:32:36:309 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MetaCRT.fx' in 0.025000 s.
+15:32:36:310 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\RetroTV.fx' in 0.131000 s.
+15:32:36:314 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\Gravity.fx' in 0.088000 s.
+15:32:36:320 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\CRT_Yee64.fx' in 0.024000 s.
+15:32:36:328 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ImageSharpening.fx' in 0.030000 s.
+15:32:36:332 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Color_Isolation.fx' in 0.030000 s.
+15:32:36:333 [36008] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\MMJCelShader.fx' in 0.024000 s with warnings:
+warning: V__RetroArchSRGB: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:334 [36020] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\TrackingRays.fx' in 0.067000 s with warnings:
+warning: V__FXShaders__BackBuffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:342 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\CRT_Yeetron.fx' in 0.022000 s.
+15:32:36:344 [35996] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\RadiantGI.fx' in 0.137000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\RadiantGI.fx(305, 1): error X3020: 'V__PCGIcurrColorTex': cannot sample from texture that is also used as render target in the same pass
+
+15:32:36:344 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\SimpleBloom.fx' in 0.034000 s.
+15:32:36:348 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ffxiv_xegtao.fx' in 0.103000 s.
+15:32:36:354 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FilmGrain.fx' in 0.005000 s.
+15:32:36:359 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\N64_3Point.fx' in 0.025000 s.
+15:32:36:361 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\SharpContrast.fx' in 0.066000 s.
+15:32:36:362 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Color_Temperature.fx' in 0.029000 s.
+15:32:36:363 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Interlacing.fx' in 0.034000 s.
+15:32:36:367 [36016] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Cursor.fx' in 0.024000 s.
+15:32:36:369 [36000] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\Bessel_Bloom.fx' in 0.076000 s.
+15:32:36:372 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Smart_Sharp.fx' in 0.027000 s.
+15:32:36:378 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FilmGrain2.fx' in 0.024000 s.
+15:32:36:380 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\SkySave.fx' in 0.034000 s.
+15:32:36:382 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\nGlide_3DFX.fx' in 0.023000 s.
+15:32:36:397 [36040] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\DFTAA.fx' in 0.101000 s with warnings:
+warning: V__colorLinearSampler: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:397 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Contrast_Brightness_Saturation.fx' in 0.034000 s.
+15:32:36:397 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\KeepUI.fx' in 0.033000 s.
+15:32:36:400 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_bloom.fx' in 0.198000 s.
+15:32:36:400 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\SmartDeNoise.fx' in 0.020000 s.
+15:32:36:402 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FilmicPass.fx' in 0.023000 s.
+15:32:36:403 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\Gravity_CS.fx' in 0.088000 s.
+15:32:36:405 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\ntsc.fx' in 0.022000 s.
+15:32:36:406 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\DINN - DIFF.fx' in 0.107000 s.
+15:32:36:413 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\UIMaskCreator.fx' in 0.051000 s.
+15:32:36:414 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\UnrealLens.fx' in 0.078000 s.
+15:32:36:417 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Temporal_AA.fx' in 0.044000 s.
+15:32:36:419 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\LevelIO.fx' in 0.021000 s.
+15:32:36:422 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\SmartNoise.fx' in 0.021000 s.
+15:32:36:422 [35988] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\qUINT\qUINT_deband.fx' in 0.023000 s.
+15:32:36:431 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\DLAA_Lite.fx' in 0.033000 s.
+15:32:36:442 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Magical_Rectangle.fx' in 0.045000 s.
+15:32:36:444 [36036] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Spotlight.fx' in 0.021000 s with warnings:
+warning: V__sColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:446 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CobraFX\RealLongExposure.fx' in 0.042000 s.
+15:32:36:448 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\LightPersistance.fx' in 0.029000 s.
+15:32:36:449 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\NTSC_RetroArch.fx' in 0.044000 s.
+15:32:36:451 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\DTAA.fx' in 0.020000 s.
+15:32:36:451 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\ASCII.fx' in 0.005000 s.
+15:32:36:455 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Insane-Shaders\VRS_Map.fx' in 0.041000 s.
+15:32:36:457 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Border.fx' in 0.004000 s.
+15:32:36:458 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\AstrayFX\Trails.fx' in 0.041000 s.
+15:32:36:462 [36012] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\Cartoon.fx' in 0.004000 s.
+15:32:36:466 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Saturation_Limit.fx' in 0.022000 s.
+15:32:36:466 [36012] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\SweetFX\CAS.fx' in 0.003000 s with warnings:
+warning: V__sTexColor: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:36:467 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\StageDepth.fx' in 0.023000 s.
+15:32:36:472 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\Emboss.fx' in 0.020000 s.
+15:32:36:476 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\NTSC_RetroArch_NoScanlines.fx' in 0.026000 s.
+15:32:36:480 [36032] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\LocalContrast.fx' in 0.031000 s.
+15:32:36:482 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FineSharp.fx' in 0.080000 s.
+15:32:36:487 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\Unsharp.fx' in 0.073000 s.
+15:32:36:487 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\AdaptiveFog.fx' in 0.029000 s.
+15:32:36:488 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Selective_Color.fx' in 0.021000 s.
+15:32:36:488 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXAA.fx' in 0.005000 s.
+15:32:36:489 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\DINN - GAUSS.fx' in 0.083000 s.
+15:32:36:490 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\SurfaceBlur.fx' in 0.021000 s.
+15:32:36:496 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\3DFX.fx' in 0.040000 s.
+15:32:36:511 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\ThreeColorGradient.fx' in 0.020000 s.
+15:32:36:515 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Selective_Color_v2.fx' in 0.027000 s.
+15:32:36:516 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\BasicCRT.fx' in 0.019000 s.
+15:32:36:519 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\VirtualResolution.fx' in 0.031000 s.
+15:32:36:520 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GaussianBlur.fx' in 0.032000 s.
+15:32:36:525 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\CRT-Royale\crt-royale.fx' in 0.424000 s.
+15:32:36:525 [36008] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\PAL.fx' in 0.048000 s.
+15:32:36:529 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ann-ReShade\PixelShifter.fx' in 0.039000 s.
+15:32:36:535 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Cathode.fx' in 0.019000 s.
+15:32:36:535 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_04_Technicolor.fx' in 0.020000 s.
+15:32:36:540 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FXShaders\WhitepointFixer.fx' in 0.020000 s.
+15:32:36:546 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\VRToolkit\VRToolkit.fx' in 0.019000 s.
+15:32:36:550 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\GBloom.fx' in 0.077000 s.
+15:32:36:554 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\VerticalPreviewer.fx' in 0.043000 s.
+15:32:36:558 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\Chromaticity.fx' in 0.021000 s.
+15:32:36:560 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_FilmGrain.fx' in 0.030000 s.
+15:32:36:570 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\MaterialFX.fx' in 0.020000 s.
+15:32:36:578 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_05_Sharpening.fx' in 0.041000 s.
+15:32:36:579 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_ahoh.fx' in 0.039000 s.
+15:32:36:579 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\ChromaticitySimplified.fx' in 0.021000 s.
+15:32:36:587 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__cas_hdr.fx' in 0.040000 s.
+15:32:36:599 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_06_Chromatic_Aberration.fx' in 0.020000 s.
+15:32:36:601 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\cmyk_halftone_dot.fx' in 0.021000 s.
+15:32:36:606 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Glamayre_Fast_Effects.fx' in 0.085000 s.
+15:32:36:617 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__filmgrain.fx' in 0.029000 s.
+15:32:36:622 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_06_Depth_Slicer.fx' in 0.023000 s.
+15:32:36:623 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_ambient_remove.fx' in 0.043000 s.
+15:32:36:625 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\ColorMAME.fx' in 0.024000 s.
+15:32:36:629 [35984] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Glitch.fx' in 0.023000 s.
+15:32:36:639 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\VHSPro.fx' in 0.084000 s.
+15:32:36:654 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_06_Film_Grain.fx' in 0.031000 s.
+15:32:36:657 [36004] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CoolRetroTerminal.fx' in 0.031000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CoolRetroTerminal.fx(167, 20): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CoolRetroTerminal.fx(168, 21): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CoolRetroTerminal.fx(174, 25): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CoolRetroTerminal.fx(194, 24): warning X3206: implicit truncation of vector type
+
+15:32:36:659 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\WatchDogs.fx' in 0.019000 s.
+15:32:36:664 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\NeoGI.fx' in 0.093000 s.
+15:32:36:677 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRT-Frutbunn.fx' in 0.020000 s.
+15:32:36:679 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\CinematicDOF.fx' in 0.191000 s.
+15:32:36:683 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_anime.fx' in 0.059000 s.
+15:32:36:697 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\crt-nes-mini.fx' in 0.020000 s.
+15:32:36:699 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\DepthDarkness.fx' in 0.020000 s.
+15:32:36:704 [35992] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\PD80\PD80_06_Luma_Fade.fx' in 0.049000 s.
+15:32:36:706 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\WinUaeMaskGlow.fx' in 0.047000 s.
+15:32:36:710 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_canvas.fx' in 0.027000 s.
+15:32:36:720 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\NeoSSAO.fx' in 0.055000 s.
+15:32:36:727 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_Lain.fx' in 0.016000 s.
+15:32:36:735 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\DepthHaze.fx' in 0.035000 s.
+15:32:36:736 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRT-NewPixie.fx' in 0.038000 s.
+15:32:36:738 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\Outline.fx' in 0.017000 s.
+15:32:36:743 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Ptho-FX\DownsampleSSAA.fx' in 0.037000 s.
+15:32:36:747 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_pastel_bug.fx' in 0.018000 s.
+15:32:36:753 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRT-Yee64.fx' in 0.016000 s.
+15:32:36:757 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\RCAS.fx' in 0.019000 s.
+15:32:36:770 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRT-Yeetron.fx' in 0.016000 s.
+15:32:36:771 [36020] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\DH\dh_sync.fx' in 0.024000 s.
+15:32:36:774 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\Shading.fx' in 0.016000 s.
+15:32:36:787 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTAperture.fx' in 0.017000 s.
+15:32:36:790 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\DirectionalDepthBlur.fx' in 0.054000 s.
+15:32:36:793 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\SSAO.fx' in 0.018000 s.
+15:32:36:806 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTCaligari.fx' in 0.018000 s.
+15:32:36:809 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\Emphasize.fx' in 0.019000 s.
+15:32:36:813 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\SSGI.fx' in 0.019000 s.
+15:32:36:826 [36004] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTcgwg.fx' in 0.020000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTcgwg.fx(108, 14): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTcgwg.fx(109, 15): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTcgwg.fx(129, 16): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTcgwg.fx(129, 36): warning X3206: implicit truncation of vector type
+
+15:32:36:829 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\GoldenRatio.fx' in 0.019000 s.
+15:32:36:846 [36004] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTCX.fx' in 0.019000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTCX.fx(157, 33): warning X3206: implicit truncation of vector type
+H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTCX.fx(157, 19): warning X3206: implicit truncation of vector type
+
+15:32:36:867 [36004] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\RSRetroArch\CRTEasymode.fx' in 0.020000 s.
+15:32:36:868 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\Heightfog.fx' in 0.038000 s.
+15:32:36:892 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\SSRT.fx' in 0.078000 s.
+15:32:36:894 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\MagicBorder.fx' in 0.025000 s.
+15:32:36:911 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\uEmboss.fx' in 0.018000 s.
+15:32:36:912 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\MultiLUT.fx' in 0.017000 s.
+15:32:36:929 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Barbatos\UFakeHDR.fx' in 0.018000 s.
+15:32:36:932 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_Framework.fx' in 0.372000 s.
+15:32:36:937 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__hdr_and_sdr_analysis.fx' in 0.319000 s.
+15:32:36:948 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_ConvertHDR10TosRGB.fx' in 0.018000 s.
+15:32:36:964 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_ConvertLinearTosRGB.fx' in 0.015000 s.
+15:32:36:977 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__hdr_black_floor_fix.fx' in 0.038000 s.
+15:32:36:983 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_ConvertsRGBToHDR10.fx' in 0.018000 s.
+15:32:36:994 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\OtisFX\PandaFX.fx' in 0.082000 s.
+15:32:36:999 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_ConvertsRGBToLinear.fx' in 0.016000 s.
+15:32:37:011 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__hdr_brightness_adjustment.fx' in 0.033000 s.
+15:32:37:013 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FGFX\FGFXEnergyConservativeFilmGrain.fx' in 0.018000 s.
+15:32:37:025 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_HDR_Converter.fx' in 0.025000 s.
+15:32:37:040 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__inverse_tone_mapping.fx' in 0.028000 s.
+15:32:37:045 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\smolbbsoop\smolbbsoop_RadialBlur.fx' in 0.019000 s.
+15:32:37:065 [36040] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Rendepth\Rendepth.fx' in 0.020000 s.
+15:32:37:068 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__map_sdr_into_hdr.fx' in 0.027000 s.
+15:32:37:083 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_LocalContrast.fx' in 0.150000 s.
+15:32:37:106 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__rcas_hdr.fx' in 0.037000 s.
+15:32:37:116 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\potatoFX\pCamera.fx' in 0.371000 s.
+15:32:37:117 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FGFX\FGFXFastCascadedSeparableBlur16X.fx' in 0.103000 s.
+15:32:37:121 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__sdr_trc_fix.fx' in 0.014000 s.
+15:32:37:155 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__test_pattern_generator.fx' in 0.034000 s.
+15:32:37:196 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ReShade_HDR_shaders\lilium__tone_mapping.fx' in 0.039000 s.
+15:32:37:245 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\FGFX\FGFXLargeScalePerceptualObscuranceIrradiance.fx' in 0.128000 s.
+15:32:37:259 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\potatoFX\pColorNoise.fx' in 0.142000 s.
+15:32:37:265 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\brussell\AreaCopy.fx' in 0.019000 s.
+15:32:37:279 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\potatoFX\pColors.fx' in 0.020000 s.
+15:32:37:284 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\brussell\AreaDiscard.fx' in 0.018000 s.
+15:32:37:301 [36036] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\potatoFX\pPalettePosterize.fx' in 0.021000 s.
+15:32:37:323 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_Motion.fx' in 0.239000 s.
+15:32:37:329 [36036] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\Anagrama\anamorpho.fx' in 0.027000 s with warnings:
+warning: V__back_buffer: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:37:330 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\brussell\EyeAdaption.fx' in 0.045000 s.
+15:32:37:354 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_PaletteMap.fx' in 0.030000 s.
+15:32:37:358 [35996] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\brussell\UIDetect.fx' in 0.027000 s.
+15:32:37:374 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_Sharpen.fx' in 0.020000 s.
+15:32:37:450 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_TurboGI.fx' in 0.076000 s.
+15:32:37:511 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\iMMERSE\MartysMods_LAUNCHPAD.fx' in 0.315000 s.
+15:32:37:557 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\iMMERSE\MartysMods_MXAO.fx' in 0.045000 s.
+15:32:37:574 [36024] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\iMMERSE\MartysMods_SHARPEN.fx' in 0.016000 s with warnings:
+warning: V__ColorInput: texture does not support sRGB sampling (back buffer format is not RGBA8)
+
+15:32:37:600 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\ZenteonFX\Zenteon_XenonBloom.fx' in 0.149000 s.
+15:32:37:634 [36024] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\iMMERSE\MartysMods_SMAA.fx' in 0.060000 s.
+15:32:37:644 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\4xBRZ.fx' in 0.044000 s.
+15:32:37:685 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\AdaptiveColorGrading.fx' in 0.040000 s.
+15:32:37:698 [36024] | WARN  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\BX_ToyCurveTool.fx' in 0.062000 s with warnings:
+H:\Games\FFXIV\game\reshade-shaders\Shaders\BX-Shade\BX_ToyCurveTool.fx(539, 19): warning X3206: implicit truncation of vector type
+
+15:32:37:714 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\Bumpmapping.fx' in 0.028000 s.
+15:32:38:107 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\CA.fx' in 0.393000 s.
+15:32:38:174 [36028] | INFO  | Successfully compiled 'H:\Games\FFXIV\game\reshade-shaders\Shaders\GShade-Shaders\CathodeRayTube.fx' in 0.059000 s.
+15:32:38:364 [15140] | DEBUG | [RenoDX] utils::shader::BuildReplacementPipeline(Replacing 0xb0ce42b9)
+15:32:38:364 [15140] | DEBUG | [RenoDX] utils::shader::PipelineShaderDetails(Replacing pipeline for 0xb0ce42b9, pipeline: 0x00000263f4ac47f8, index: 0, type: pixel_shader, stage: pixel_shader)
+15:32:38:365 [15140] | DEBUG | [RenoDX] utils::shader::BuildReplacementPipeline(Replacing 0xf8f57f0a)
+15:32:38:366 [15140] | DEBUG | [RenoDX] utils::shader::PipelineShaderDetails(Replacing pipeline for 0xf8f57f0a, pipeline: 0x00000263f4ac55f8, index: 0, type: pixel_shader, stage: pixel_shader)
+15:32:38:366 [15140] | DEBUG | [RenoDX] utils::shader::BuildReplacementPipeline(Replacing 0xb0ce42b9)
+15:32:38:366 [15140] | DEBUG | [RenoDX] utils::shader::PipelineShaderDetails(Replacing pipeline for 0xb0ce42b9, pipeline: 0x00000263f4ac5938, index: 0, type: pixel_shader, stage: pixel_shader)
+15:32:38:367 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0x85e777ef with 1272 bytes  at 00000263F5125270)
+15:32:38:367 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0xf6e81a1b with 756 bytes  at 00000263A5ADD3A0)
+15:32:38:369 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0xfe5b6b3e with 1036 bytes  at 00000263EEE26F90)
+15:32:38:369 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0x9b242d09 with 912 bytes  at 00000263A48F1860)
+15:32:38:382 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0x1f264d17 with 2816 bytes  at 00000263EE8A8040)
+15:32:38:382 [15140] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0xcdc56365 with 456 bytes  at 0000026392F9D000)
+15:32:39:493 [33660] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0xfe5b6b3e with 1036 bytes  at 00000263ECC35140)
+15:32:39:493 [33660] | INFO  | [RenoDX] utils::shader::OnCreatePipeline(replacing 0x9b242d09 with 912 bytes  at 0000026454A28B00)
+15:32:41:104 [33624] | INFO  | Registered add-on "Dalamud" v15.0.3.5 using ReShade API version 1.
+15:32:41:105 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] CALLBACK_FOUND version=15.0.3.5 owner=00000250B3E00000 thunk=00007FFBA3948078 event=81 index=0 ownership=original registration_order=unchanged (mode-3 drawing requires native draw evidence)
+15:32:41:111 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=231 proxy_pass_available=1
+15:32:41:112 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=231 rtv=0x00000250ae92ec60
+15:32:41:112 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] PRESENTATION runtime=00000250B294EFD0 native_swapchain=00000261046D9FA0 hwnd=00000000000A0F62 current_index=0 buffer_count=1 format=24 dimensions=3440x1440 current_resource=0x000002610b3886e0 buffer0=0x000002610b3886e0 native_buffer0=0x000002610b3886e0 renodx_proxy=0x000002637bdf90e0 presentation_iunknown=0x000002610b3885e0 proxy_iunknown=0x000002637bdf8fe0
+15:32:41:112 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=231 after_renodx_present=1 effects_finished_this_frame=1
+15:32:41:224 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=231 native_indexed_draws=0 presentation_draws=0
+15:32:41:224 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=231 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:32:41:697 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=232 proxy_pass_available=1
+15:32:41:697 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=232 rtv=0x00000250ae92ec60
+15:32:41:697 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=232 after_renodx_present=1 effects_finished_this_frame=1
+15:32:41:819 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=232 native_indexed_draws=0 presentation_draws=0
+15:32:41:819 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=232 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:32:41:824 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=233 proxy_pass_available=1
+15:32:41:824 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=233 rtv=0x00000250ae92ec60
+15:32:41:824 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=233 after_renodx_present=1 effects_finished_this_frame=1
+15:32:41:841 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=233 native_indexed_draws=0 presentation_draws=0
+15:32:41:841 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=233 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:32:52:190 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] NATIVE_DRAW runtime=00000250B294EFD0 frame=589 device=00000261001FF990 immediate_context=00000250ADFC7CD8 context_type=0 rtv=000002610EA8CB20 resource=000002610B3886E0 resource_iunknown=0x000002610b3885e0 format=24 dimensions=3440x1440 samples=1 rtv_format=24 matches_presentation=1 matches_buffer0=1 matches_native_buffer0=1 matches_proxy=0
+15:32:52:190 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=589 native_indexed_draws=1 presentation_draws=1
+15:32:52:190 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=589 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:32:52:206 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=590 proxy_pass_available=1
+15:32:52:207 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=590 rtv=0x00000250ae92ec60
+15:32:52:207 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=590 after_renodx_present=1 effects_finished_this_frame=1
+15:32:52:207 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=590 native_indexed_draws=0 presentation_draws=0
+15:32:52:207 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=590 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:32:52:223 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=591 proxy_pass_available=1
+15:32:52:223 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=591 rtv=0x00000250ae92ec60
+15:32:52:224 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=591 after_renodx_present=1 effects_finished_this_frame=1
+15:32:52:224 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=591 native_indexed_draws=0 presentation_draws=0
+15:32:52:224 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=591 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:35:015 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] TRACE_REARM runtime=00000250B294EFD0 reshade_gui_open=1
+15:34:35:015 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6575 after_renodx_present=1 effects_finished_this_frame=1
+15:34:35:016 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6575 native_indexed_draws=0 presentation_draws=0
+15:34:35:016 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6575 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:35:031 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=6576 proxy_pass_available=1
+15:34:35:031 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=6576 rtv=0x00000250ae92ec60
+15:34:35:032 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6576 after_renodx_present=1 effects_finished_this_frame=1
+15:34:35:032 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6576 native_indexed_draws=0 presentation_draws=0
+15:34:35:032 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6576 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:35:048 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=6577 proxy_pass_available=1
+15:34:35:048 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=6577 rtv=0x00000250ae92ec60
+15:34:35:048 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6577 after_renodx_present=1 effects_finished_this_frame=1
+15:34:35:049 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6577 native_indexed_draws=0 presentation_draws=0
+15:34:35:049 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6577 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:40:939 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] TRACE_REARM runtime=00000250B294EFD0 reshade_gui_open=0
+15:34:40:939 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6924 after_renodx_present=1 effects_finished_this_frame=1
+15:34:40:940 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6924 native_indexed_draws=0 presentation_draws=0
+15:34:40:940 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6924 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:40:955 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=6925 proxy_pass_available=1
+15:34:40:955 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=6925 rtv=0x00000250ae92ec60
+15:34:40:955 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6925 after_renodx_present=1 effects_finished_this_frame=1
+15:34:40:955 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6925 native_indexed_draws=0 presentation_draws=0
+15:34:40:956 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6925 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:40:973 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=6926 proxy_pass_available=1
+15:34:40:973 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=6926 rtv=0x00000250ae92ec60
+15:34:40:973 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=6926 after_renodx_present=1 effects_finished_this_frame=1
+15:34:40:973 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=6926 native_indexed_draws=0 presentation_draws=0
+15:34:40:973 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=6926 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:244 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] TRACE_REARM runtime=00000250B294EFD0 reshade_gui_open=1
+15:34:47:244 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7303 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:245 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7303 native_indexed_draws=0 presentation_draws=0
+15:34:47:245 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7303 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:259 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=7304 proxy_pass_available=1
+15:34:47:260 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=7304 rtv=0x00000250ae92ec60
+15:34:47:261 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7304 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:261 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7304 native_indexed_draws=0 presentation_draws=0
+15:34:47:261 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7304 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:277 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=7305 proxy_pass_available=1
+15:34:47:277 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=7305 rtv=0x00000250ae92ec60
+15:34:47:278 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7305 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:278 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7305 native_indexed_draws=0 presentation_draws=0
+15:34:47:278 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7305 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:694 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] TRACE_REARM runtime=00000250B294EFD0 reshade_gui_open=0
+15:34:47:694 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7330 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:694 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7330 native_indexed_draws=0 presentation_draws=0
+15:34:47:695 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7330 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:711 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=7331 proxy_pass_available=1
+15:34:47:711 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=7331 rtv=0x00000250ae92ec60
+15:34:47:711 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7331 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:711 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7331 native_indexed_draws=0 presentation_draws=0
+15:34:47:711 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7331 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:34:47:727 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] AFTER_RENODX_PRESENT runtime=00000250B294EFD0 frame=7332 proxy_pass_available=1
+15:34:47:727 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EFFECTS_FINISHED runtime=00000250B294EFD0 frame=7332 rtv=0x00000250ae92ec60
+15:34:47:727 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] ENTER runtime=00000250B294EFD0 frame=7332 after_renodx_present=1 effects_finished_this_frame=1
+15:34:47:728 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] EXIT runtime=00000250B294EFD0 frame=7332 native_indexed_draws=0 presentation_draws=0
+15:34:47:728 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RESHADE_PRESENT runtime=00000250B294EFD0 frame=7332 entered=1 exited=1 reshade_native_draw_after_exit=0 (after GUI; before underlying Present; OptiScaler handoff requires external capture)
+15:37:47:858 [15528] | INFO  | [RenoDX] utils::resource::upgrade::OnDestroyDevice(2615862857656)
+15:37:47:859 [15528] | INFO  | [RenoDX] mods::swapchain::OnDestroyDevice(2615862857656)
+15:37:47:859 [15528] | INFO  | [RenoDX] utils::shader::OnDestroyDevice(2615862857656)
+15:37:47:861 [15528] | INFO  | [RenoDX] mods::shader::OnDestroyDevice(2615862857656)
+15:37:51:371 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] OWNER_UNREGISTER original dispatch restored; native ownership cleanup follows
+15:37:51:372 [33624] | INFO  | Unregistered add-on "Dalamud".
+15:38:02:987 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] RUNTIME_DESTROY runtime=00000250B294EFD0
+15:38:02:989 [33624] | INFO  | Destroyed runtime environment on runtime 00000250B294EFD0 ('H:\Games\FFXIV\game\ReShade.ini').
+15:38:02:989 [33624] | DEBUG | [RenoDX] mods::swapchain::OnDestroySwapchain(0x00000250aa3f9e10, resize: false, unhook_wndproc: true)
+15:38:03:083 [33624] | INFO  | [RenoDX] utils::resource::upgrade::OnDestroyDevice(2615637178776)
+15:38:03:084 [33624] | INFO  | [RenoDX] mods::swapchain::OnDestroyDevice(2615637178776)
+15:38:03:084 [33624] | INFO  | [RenoDX] utils::shader::OnDestroyDevice(2615637178776)
+15:38:03:084 [33624] | INFO  | [RenoDX] mods::shader::OnDestroyDevice(2615637178776)
+15:38:03:084 [33624] | INFO  | Unloading add-on "Frame Capture" ...
+15:38:03:084 [33624] | INFO  | Unregistered add-on "Frame Capture".
+15:38:03:084 [33624] | INFO  | Unloading add-on "RenoDX" ...
+15:38:03:085 [33624] | INFO  | [RenoDX] [FFXIV Dalamud] DETACHED dispatch restored; all native hooks removed
+15:38:03:085 [33624] | INFO  | [RenoDX] ResourceUtil detached.
+15:38:03:085 [33624] | INFO  | Unregistered add-on "RenoDX".
+15:38:03:086 [33624] | WARN  | Reference count for IDXGIAdapter0 object 00000250ABE2B020 (00000250ADDAAFD0) is inconsistent (2).
+15:38:03:086 [33624] | WARN  | Reference count for ID3D11Device5 object 00000261001FF990 (00000250ADFC6950) is inconsistent (88).
+15:38:03:389 [33624] | INFO  | Exiting ...
+15:38:03:391 [33624] | INFO  | Uninstalling 45 hook(s) ...
+15:38:04:421 [33624] | INFO  | Finished exiting.
